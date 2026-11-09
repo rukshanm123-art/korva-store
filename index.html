@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KORVA — T-Shirts, Pants, Shoes &amp; Accessories</title>
+  <meta name="description" content="KORVA Street Studio — tees, pants, shoes and accessories, styled head to toe." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="is-intro">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <clipPath id="ogee" clipPathUnits="objectBoundingBox">
+      <path d="M0,1 L0,0.38 C0,0.25 0.16,0.21 0.3,0.14 C0.41,0.08 0.47,0.05 0.5,0 C0.53,0.05 0.59,0.08 0.7,0.14 C0.84,0.21 1,0.25 1,0.38 L1,1 Z" />
+    </clipPath>
+  </svg>
+
+  <!-- ============ INTRO CURTAIN ============ -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro__stage">
+      <div class="curtain curtain--l"><div class="curtain__border"></div></div>
+      <div class="curtain curtain--r"><div class="curtain__border"></div></div>
+      <div class="intro__floor"></div>
+      <div class="intro__logo">
+        <svg class="crown" viewBox="0 0 64 40" aria-hidden="true"><path d="M6 34 L2 10 L18 22 L32 4 L46 22 L62 10 L58 34 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="32" cy="4" r="2.6" fill="currentColor"/><circle cx="2" cy="10" r="2.2" fill="currentColor"/><circle cx="62" cy="10" r="2.2" fill="currentColor"/><path d="M8 38 H56" stroke="currentColor" stroke-width="2.4"/></svg>
+        <div class="intro__word">KORVA</div>
+        <div class="intro__sub">STREET · STUDIO · EST. 2026</div>
+      </div>
+    </div>
+    <button class="intro__skip" id="introSkip">Enter the store</button>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a class="nav__logo" href="#home" aria-label="KORVA home">
+      <svg class="crown" viewBox="0 0 64 40" aria-hidden="true"><path d="M6 34 L2 10 L18 22 L32 4 L46 22 L62 10 L58 34 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M8 38 H56" stroke="currentColor" stroke-width="3"/></svg>
+      <span class="nav__word">KORVA</span>
+      <span class="nav__tiny">STREET STUDIO · EST 2026</span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#home" data-sec="home" class="is-active">Home</a>
+      <a href="#look" data-sec="look">Try the Look</a>
+      <a href="#pick" data-sec="pick">Pick a Fit</a>
+      <a href="#rack" data-sec="rack">The Rack</a>
+      <a href="#muse" data-sec="muse">The Muse</a>
+      <a href="#signature" data-sec="signature">Signature</a>
+      <a href="#mix" data-sec="mix">The Mix</a>
+    </nav>
+    <div class="nav__icons">
+      <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button>
+      <button class="icon-btn" id="bagBtn" aria-label="Bag"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="bag-count" id="bagCount">0</span></button>
+      <a class="pill pill--red pill--sm" href="#footer">Visit the Store <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+    </div>
+    <button class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home" data-section>
+      <div class="hero__slides" id="heroSlides"></div>
+      <div class="hero__shade"></div>
+      <div class="hero__content" id="heroContent"></div>
+      <div class="hero__bars" id="heroBars"></div>
+    </section>
+
+    <!-- ribbon -->
+    <div class="ribbon">
+      <div class="ribbon__track">
+        <span>PURE COTTON</span><i>◆</i><span>HAND-FINISHED</span><i>◆</i><span>STREET READY</span><i>◆</i><span>LIMITED DROPS</span><i>◆</i><span>BUILT SOLES</span><i>◆</i>
+        <span>PURE COTTON</span><i>◆</i><span>HAND-FINISHED</span><i>◆</i><span>STREET READY</span><i>◆</i><span>LIMITED DROPS</span><i>◆</i><span>BUILT SOLES</span><i>◆</i>
+        <span>PURE COTTON</span><i>◆</i><span>HAND-FINISHED</span><i>◆</i><span>STREET READY</span><i>◆</i><span>LIMITED DROPS</span><i>◆</i><span>BUILT SOLES</span><i>◆</i>
+      </div>
+    </div>
+
+    <!-- ============ SIX MOODS ============ -->
+    <section class="sec moods" id="moods" data-section="home">
+      <div class="sec__head">
+        <div>
+          <div class="eyebrow" data-reveal>The Korva Archive</div>
+          <h2 class="h2" data-split>Six Moods. <em class="grad">Timeless Fits</em></h2>
+        </div>
+        <p class="sec__aside" data-reveal>Six ways to wear the city. Each mood is cut, washed and finished in small batches — from first coffee to last train home.</p>
+      </div>
+      <div class="arches" id="arches"></div>
+    </section>
+
+    <!-- ============ TRY THE LOOK ============ -->
+    <section class="sec look" id="look" data-section>
+      <div class="look__head">
+        <div class="eyebrow" data-reveal>Styled head to toe</div>
+        <h2 class="h2" data-split>Try the <em class="grad">Look.</em></h2>
+        <p class="lead" data-reveal>Eight looks, styled head to toe. Tap a look to see the pieces.</p>
+      </div>
+      <div class="look__label" id="lookLabel"><small>LOOK 01</small><span>Ivory Street</span></div>
+      <div class="look__wrap">
+        <div class="look__stage" id="lookStage">
+          <button class="look__back" id="lookBack" aria-label="Back to all looks"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <div class="look__strip" id="lookStrip"></div>
+          <div class="look__nav">
+            <button class="circle-btn" id="lookPrev" aria-label="Previous look"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <div class="look__count" id="lookCount">01 / 08</div>
+            <button class="circle-btn" id="lookNext" aria-label="Next look"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+        <aside class="look__panel">
+          <div class="look__panel-title">In this look</div>
+          <ul class="look__pieces" id="lookPieces"></ul>
+          <div class="look__total"><span>Complete the look</span><b id="lookTotal">₹0</b></div>
+          <button class="pill pill--red" id="lookAdd">Add full look to bag <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ PICK A FIT ============ -->
+    <section class="sec pick" id="pick" data-section>
+      <div class="sec__head">
+        <h2 class="h2" data-split>Pick a <em class="grad">Fit</em></h2>
+        <p class="sec__aside sec__aside--right" data-reveal>Tilt a card, press it, poke the <b class="mini-plus">+</b> to drop a piece into your bag.</p>
+      </div>
+      <div class="deck" id="deck"><div class="deck__track" id="deckTrack"></div></div>
+      <div class="micro" data-reveal>The collection</div>
+    </section>
+
+    <!-- ============ THE RACK ============ -->
+    <section class="sec rack" id="rack" data-section>
+      <div class="rack__head">
+        <h2 class="h2 center" data-split>Every piece, <em class="grad">on the rail.</em></h2>
+        <div class="chips" id="chips" data-reveal></div>
+      </div>
+      <div class="rack__stage" id="rackStage">
+        <button class="circle-btn rack__arrow rack__arrow--l" id="rackPrev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button class="circle-btn rack__arrow rack__arrow--r" id="rackNext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+        <div class="rail"><div class="rail__bar"></div><div class="rail__items" id="railItems"></div></div>
+        <div class="rack__detail" id="rackDetail">
+          <div class="rack__name" id="rdName"></div>
+          <div class="rack__price" id="rdPrice"></div>
+          <div class="seg" id="rdSide"><button class="is-on" data-side="front">FRONT</button><button data-side="back">BACK</button></div>
+          <div class="sizes" id="rdSizes"></div>
+          <div class="rack__actions"><button class="pill pill--red" id="rdAdd">Add to bag</button><button class="heart" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button></div>
+          <a class="rack__avail" href="#footer">See availability</a>
+        </div>
+      </div>
+      <div class="micro" id="rackMicro">The rack · 0 pieces</div>
+    </section>
+
+    <!-- ============ BUILT FOR THE BLOCK ============ -->
+    <section class="sec devote" id="devote" data-section="rack">
+      <h2 class="h1 devote__title" data-split>Built for the block. <em class="grad">Worn in light.</em></h2>
+      <div class="devote__rail" id="devoteRail"><div class="devote__track" id="devoteTrack"></div></div>
+      <div class="lines">
+        <div class="lines__row"><div class="lines__track">
+          <span>Ten pieces. <em class="red">Ten moods.</em></span><span>Every stitch <em class="grad">an intention.</em></span><span>Cut by hand. <em class="red">Worn in motion.</em></span>
+          <span>Ten pieces. <em class="red">Ten moods.</em></span><span>Every stitch <em class="grad">an intention.</em></span><span>Cut by hand. <em class="red">Worn in motion.</em></span>
+        </div></div>
+      </div>
+      <div class="devote__cta">
+        <button class="pill pill--red" id="viewCart">View cart <span class="pill__count" id="viewCartCount">0</span></button>
+        <a class="link-arrow" href="#rack">Shop the Rack <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </section>
+
+    <!-- ============ FEEL THE FIT ============ -->
+    <section class="sec feel" id="muse" data-section>
+      <div class="feel__grid">
+        <div class="feel__col feel__col--l"><div class="feel__colTrack" id="feelL"></div></div>
+        <div class="feel__center">
+          <div class="eyebrow center" data-reveal>The Muse Film</div>
+          <h2 class="h2 center" data-split>Feel the <em class="grad">fit</em></h2>
+          <div class="film" id="film">
+            <div class="film__frames" id="filmFrames"></div>
+            <div class="film__chip"><button id="filmPlay" aria-label="Pause"><svg viewBox="0 0 24 24" class="i-pause"><path d="M8 5v14M16 5v14"/></svg></button><span class="film__dot"></span></div>
+            <div class="film__progress"><i id="filmProg"></i></div>
+          </div>
+          <a class="pill pill--red" href="#signature">Purchase the Collection <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+          <p class="feel__note">Five fits filmed the way they are worn — rooftops, backstreets, the last train home.</p>
+        </div>
+        <div class="feel__col feel__col--r"><div class="feel__colTrack" id="feelR"></div></div>
+      </div>
+    </section>
+
+    <!-- ============ STYLE IN MOTION (REELS) ============ -->
+    <section class="sec reels" id="reels" data-section="muse">
+      <div class="sec__head">
+        <div>
+          <div class="eyebrow" data-reveal>The Muse Reels</div>
+          <h2 class="h2" data-split>Style, <em class="grad">in motion.</em></h2>
+        </div>
+        <div class="reels__side" data-reveal>
+          <p>Seven fits filmed the way they are lived in — a rooftop at dusk, a market at noon, a long walk home. Tap a reel to step inside.</p>
+          <button class="dark-dot" id="reelsPause" aria-label="Pause reels"><svg viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></svg></button>
+        </div>
+      </div>
+      <div class="reels__row" id="reelsRow"></div>
+    </section>
+
+    <!-- ============ SIGNATURE ============ -->
+    <section class="sec sig" id="signature" data-section>
+      <div class="eyebrow center" data-reveal>For the big night and every night after</div>
+      <h2 class="h2 center" data-split>The Signature <em class="grad">Collection</em></h2>
+      <div class="fan" id="fan"></div>
+      <div class="sig__info">
+        <div class="sig__name" id="sigName"></div>
+        <div class="sig__sub" id="sigSub"></div>
+        <button class="pill pill--red" id="sigAdd">Add to cart</button>
+        <div class="sig__dots" id="sigDots"></div>
+      </div>
+    </section>
+
+    <!-- ============ THREE PIECES, ONE FIT ============ -->
+    <section class="sec mix" id="mix" data-section>
+      <div class="mix__top">
+        <div class="mix__brand">Korva Capsule</div>
+        <div class="mix__offer">Any three pieces, 10% off</div>
+        <div class="mix__toast" id="mixToast"></div>
+        <h2 class="h2 center" data-split>Three pieces, <em class="grad">one fit.</em></h2>
+      </div>
+      <canvas class="mix__canvas" id="weave"></canvas>
+      <div class="mix__bottom">
+        <ol class="mix__slots" id="mixSlots"></ol>
+        <div class="mix__picker">
+          <div class="mix__prompt" id="mixPrompt">Choose a fabric to weave it in</div>
+          <div class="swatches" id="swatches"></div>
+        </div>
+        <div class="mix__price">
+          <s id="mixWas"></s>
+          <b id="mixNow">₹0</b>
+          <small id="mixLeft">3 more to weave</small>
+          <button class="pill pill--gold" id="mixAdd">Add the capsule to bag</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="footer">
+    <div class="footer__card">
+      <div class="footer__top">
+        <h2 class="footer__title" data-split>Made with heart.<br/>Worn for <em class="gold">today.</em></h2>
+        <div class="footer__brand">KORVA</div>
+      </div>
+      <div class="footer__cols">
+        <div><h4>Shop</h4><a href="#rack">T-shirts</a><a href="#rack">Pants</a><a href="#rack">Shoes</a><a href="#rack">Accessories</a></div>
+        <div><h4>Explore</h4><a href="#moods">Our story</a><a href="#devote">Craftsmanship</a><a href="#look">The lookbook</a><a href="#muse">Store locator</a></div>
+        <div><h4>Support</h4><a href="#footer">Contact us</a><a href="#footer">Shipping &amp; delivery</a><a href="#footer">Returns &amp; exchanges</a></div>
+        <div><h4>Legal</h4><a href="#footer">Terms &amp; conditions</a><a href="#footer">Privacy policy</a></div>
+        <div class="footer__news"><h4>Stay updated</h4><p>New drops, private previews and styling notes, delivered thoughtfully.</p>
+          <form id="newsForm"><input type="email" placeholder="Your email address" required /><button aria-label="Subscribe"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+        </div>
+      </div>
+      <div class="footer__legal">© 2026 KORVA Street Studio. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- ticker -->
+  <div class="ticker"><div class="ticker__track" id="ticker"></div></div>
+
+  <!-- story viewer -->
+  <div class="story" id="story" aria-hidden="true">
+    <div class="story__bg" id="storyBg"></div>
+    <div class="story__stage" id="storyStage"></div>
+    <div class="story__hint">Tap sides to skip · hold to pause · swipe down to close</div>
+  </div>
+
+  <!-- bag drawer -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer__scrim" data-close></div>
+    <div class="drawer__panel">
+      <div class="drawer__head"><h3>Your bag</h3><button class="icon-btn icon-btn--dark" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+      <ul class="drawer__list" id="drawerList"></ul>
+      <div class="drawer__foot"><div><span>Subtotal</span><b id="drawerTotal">₹0</b></div><button class="pill pill--red">Checkout</button></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="data.js"></script>
+  <script src="garments.js"></script>
+  <script src="weave.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
