@@ -1,44 +1,39 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-NZ">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>KORVA — T-Shirts, Pants, Shoes &amp; Accessories</title>
-  <meta name="description" content="KORVA Street Studio — tees, pants, shoes and accessories, styled head to toe." />
+  <meta name="description" content="KORVA — tees, pants, sneakers and accessories, styled head to toe. Free NZ shipping over $150." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="is-intro">
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <clipPath id="ogee" clipPathUnits="objectBoundingBox">
-      <path d="M0,1 L0,0.38 C0,0.25 0.16,0.21 0.3,0.14 C0.41,0.08 0.47,0.05 0.5,0 C0.53,0.05 0.59,0.08 0.7,0.14 C0.84,0.21 1,0.25 1,0.38 L1,1 Z" />
-    </clipPath>
-  </svg>
 
-  <!-- ============ INTRO CURTAIN ============ -->
+  <!-- ============ INTRO ============ -->
   <div class="intro" id="intro" aria-hidden="true">
-    <div class="intro__stage">
-      <div class="curtain curtain--l"><div class="curtain__border"></div></div>
-      <div class="curtain curtain--r"><div class="curtain__border"></div></div>
-      <div class="intro__floor"></div>
-      <div class="intro__logo">
-        <svg class="crown" viewBox="0 0 64 40" aria-hidden="true"><path d="M6 34 L2 10 L18 22 L32 4 L46 22 L62 10 L58 34 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="32" cy="4" r="2.6" fill="currentColor"/><circle cx="2" cy="10" r="2.2" fill="currentColor"/><circle cx="62" cy="10" r="2.2" fill="currentColor"/><path d="M8 38 H56" stroke="currentColor" stroke-width="2.4"/></svg>
-        <div class="intro__word">KORVA</div>
-        <div class="intro__sub">STREET · STUDIO · EST. 2026</div>
-      </div>
+    <div class="intro__glow"></div>
+    <div class="intro__top"><span>KORVA STUDIO</span><span>AOTEAROA · EST. 2026</span></div>
+    <div class="intro__floats">
+      <img src="assets/products/t4.webp" alt="" class="f1" />
+      <img src="assets/products/s2.webp" alt="" class="f2" />
+      <img src="assets/products/a1.webp" alt="" class="f3" />
+      <img src="assets/products/p3.webp" alt="" class="f4" />
     </div>
-    <button class="intro__skip" id="introSkip">Enter the store</button>
+    <div class="intro__word"><span>K</span><span>O</span><span>R</span><span>V</span><span>A</span></div>
+    <div class="intro__tag">T-shirts <i></i> Pants <i></i> Shoes <i></i> Accessories</div>
+    <div class="intro__bottom"><span>Loading the new season</span><span class="intro__count" id="introCount">000</span></div>
+    <div class="intro__bar"><i id="introBar"></i></div>
+    <div class="intro__wipe intro__wipe--a"></div>
+    <div class="intro__wipe intro__wipe--b"></div>
+    <button class="intro__skip" id="introSkip">Skip intro</button>
   </div>
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
-    <a class="nav__logo" href="#home" aria-label="KORVA home">
-      <svg class="crown" viewBox="0 0 64 40" aria-hidden="true"><path d="M6 34 L2 10 L18 22 L32 4 L46 22 L62 10 L58 34 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M8 38 H56" stroke="currentColor" stroke-width="3"/></svg>
-      <span class="nav__word">KORVA</span>
-      <span class="nav__tiny">STREET STUDIO · EST 2026</span>
-    </a>
+    <a class="nav__logo" href="#home" aria-label="KORVA home"><span class="mark">K</span><span class="nav__word">KORVA</span></a>
     <nav class="nav__links" id="navLinks">
       <a href="#home" data-sec="home" class="is-active">Home</a>
       <a href="#look" data-sec="look">Try the Look</a>
@@ -51,7 +46,7 @@
     <div class="nav__icons">
       <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button>
       <button class="icon-btn" id="bagBtn" aria-label="Bag"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="bag-count" id="bagCount">0</span></button>
-      <a class="pill pill--red pill--sm" href="#footer">Visit the Store <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="pill pill--lime pill--sm" href="checkout.html">Checkout <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
     </div>
     <button class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span></button>
   </header>
@@ -65,13 +60,8 @@
       <div class="hero__bars" id="heroBars"></div>
     </section>
 
-    <!-- ribbon -->
     <div class="ribbon">
-      <div class="ribbon__track">
-        <span>PURE COTTON</span><i>◆</i><span>HAND-FINISHED</span><i>◆</i><span>STREET READY</span><i>◆</i><span>LIMITED DROPS</span><i>◆</i><span>BUILT SOLES</span><i>◆</i>
-        <span>PURE COTTON</span><i>◆</i><span>HAND-FINISHED</span><i>◆</i><span>STREET READY</span><i>◆</i><span>LIMITED DROPS</span><i>◆</i><span>BUILT SOLES</span><i>◆</i>
-        <span>PURE COTTON</span><i>◆</i><span>HAND-FINISHED</span><i>◆</i><span>STREET READY</span><i>◆</i><span>LIMITED DROPS</span><i>◆</i><span>BUILT SOLES</span><i>◆</i>
-      </div>
+      <div class="ribbon__track" id="ribbon"></div>
     </div>
 
     <!-- ============ SIX MOODS ============ -->
@@ -81,7 +71,7 @@
           <div class="eyebrow" data-reveal>The Korva Archive</div>
           <h2 class="h2" data-split>Six Moods. <em class="grad">Timeless Fits</em></h2>
         </div>
-        <p class="sec__aside" data-reveal>Six ways to wear the city. Each mood is cut, washed and finished in small batches — from first coffee to last train home.</p>
+        <p class="sec__aside" data-reveal>Six ways to wear the city, built from the same 20 pieces: tees, pants, sneakers and the small things that finish a look.</p>
       </div>
       <div class="arches" id="arches"></div>
     </section>
@@ -91,24 +81,24 @@
       <div class="look__head">
         <div class="eyebrow" data-reveal>Styled head to toe</div>
         <h2 class="h2" data-split>Try the <em class="grad">Look.</em></h2>
-        <p class="lead" data-reveal>Eight looks, styled head to toe. Tap a look to see the pieces.</p>
+        <p class="lead" data-reveal>Four looks, styled head to toe. Tap a look to see every piece on it.</p>
       </div>
-      <div class="look__label" id="lookLabel"><small>LOOK 01</small><span>Ivory Street</span></div>
+      <div class="look__label" id="lookLabel"></div>
       <div class="look__wrap">
         <div class="look__stage" id="lookStage">
           <button class="look__back" id="lookBack" aria-label="Back to all looks"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
           <div class="look__strip" id="lookStrip"></div>
           <div class="look__nav">
             <button class="circle-btn" id="lookPrev" aria-label="Previous look"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
-            <div class="look__count" id="lookCount">01 / 08</div>
+            <div class="look__count" id="lookCount"></div>
             <button class="circle-btn" id="lookNext" aria-label="Next look"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
           </div>
         </div>
         <aside class="look__panel">
           <div class="look__panel-title">In this look</div>
           <ul class="look__pieces" id="lookPieces"></ul>
-          <div class="look__total"><span>Complete the look</span><b id="lookTotal">₹0</b></div>
-          <button class="pill pill--red" id="lookAdd">Add full look to bag <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <div class="look__total"><span>Complete the look</span><b id="lookTotal"></b></div>
+          <button class="pill pill--primary" id="lookAdd">Add full look to bag <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
         </aside>
       </div>
     </section>
@@ -120,7 +110,7 @@
         <p class="sec__aside sec__aside--right" data-reveal>Tilt a card, press it, poke the <b class="mini-plus">+</b> to drop a piece into your bag.</p>
       </div>
       <div class="deck" id="deck"><div class="deck__track" id="deckTrack"></div></div>
-      <div class="micro" data-reveal>The collection</div>
+      <div class="micro" data-reveal>The full collection · 20 pieces</div>
     </section>
 
     <!-- ============ THE RACK ============ -->
@@ -132,17 +122,21 @@
       <div class="rack__stage" id="rackStage">
         <button class="circle-btn rack__arrow rack__arrow--l" id="rackPrev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
         <button class="circle-btn rack__arrow rack__arrow--r" id="rackNext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
-        <div class="rail"><div class="rail__bar"></div><div class="rail__items" id="railItems"></div></div>
+        <div class="fixture" id="fixture">
+          <div class="rail" id="rail"><div class="rail__bar"></div><div class="rail__items" id="railItems"></div></div>
+          <div class="shelf" id="shelf"><div class="shelf__items" id="shelfItems"></div><div class="shelf__board"></div></div>
+        </div>
         <div class="rack__detail" id="rackDetail">
+          <div class="rack__cat" id="rdCat"></div>
           <div class="rack__name" id="rdName"></div>
           <div class="rack__price" id="rdPrice"></div>
           <div class="seg" id="rdSide"><button class="is-on" data-side="front">FRONT</button><button data-side="back">BACK</button></div>
           <div class="sizes" id="rdSizes"></div>
-          <div class="rack__actions"><button class="pill pill--red" id="rdAdd">Add to bag</button><button class="heart" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button></div>
-          <a class="rack__avail" href="#footer">See availability</a>
+          <div class="rack__actions"><button class="pill pill--primary" id="rdAdd">Add to bag</button><button class="heart" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button></div>
+          <button class="rack__close" id="rdClose">Back to the rack</button>
         </div>
       </div>
-      <div class="micro" id="rackMicro">The rack · 0 pieces</div>
+      <div class="micro" id="rackMicro"></div>
     </section>
 
     <!-- ============ BUILT FOR THE BLOCK ============ -->
@@ -150,13 +144,13 @@
       <h2 class="h1 devote__title" data-split>Built for the block. <em class="grad">Worn in light.</em></h2>
       <div class="devote__rail" id="devoteRail"><div class="devote__track" id="devoteTrack"></div></div>
       <div class="lines">
-        <div class="lines__row"><div class="lines__track">
-          <span>Ten pieces. <em class="red">Ten moods.</em></span><span>Every stitch <em class="grad">an intention.</em></span><span>Cut by hand. <em class="red">Worn in motion.</em></span>
-          <span>Ten pieces. <em class="red">Ten moods.</em></span><span>Every stitch <em class="grad">an intention.</em></span><span>Cut by hand. <em class="red">Worn in motion.</em></span>
-        </div></div>
+        <div class="lines__track">
+          <span>Twenty pieces. <em class="accent">Endless fits.</em></span><span>Every stitch <em class="grad">an intention.</em></span><span>Cut for Aotearoa. <em class="accent">Worn in motion.</em></span>
+          <span>Twenty pieces. <em class="accent">Endless fits.</em></span><span>Every stitch <em class="grad">an intention.</em></span><span>Cut for Aotearoa. <em class="accent">Worn in motion.</em></span>
+        </div>
       </div>
       <div class="devote__cta">
-        <button class="pill pill--red" id="viewCart">View cart <span class="pill__count" id="viewCartCount">0</span></button>
+        <button class="pill pill--primary" id="viewCart">View bag <span class="pill__count" id="viewCartCount">0</span></button>
         <a class="link-arrow" href="#rack">Shop the Rack <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </section>
@@ -170,17 +164,17 @@
           <h2 class="h2 center" data-split>Feel the <em class="grad">fit</em></h2>
           <div class="film" id="film">
             <div class="film__frames" id="filmFrames"></div>
-            <div class="film__chip"><button id="filmPlay" aria-label="Pause"><svg viewBox="0 0 24 24" class="i-pause"><path d="M8 5v14M16 5v14"/></svg></button><span class="film__dot"></span></div>
+            <div class="film__chip"><button id="filmPlay" aria-label="Pause"><svg viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg></button><span class="film__dot"></span></div>
             <div class="film__progress"><i id="filmProg"></i></div>
           </div>
-          <a class="pill pill--red" href="#signature">Purchase the Collection <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
-          <p class="feel__note">Five fits filmed the way they are worn — rooftops, backstreets, the last train home.</p>
+          <a class="pill pill--primary" href="#signature">Shop the Collection <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+          <p class="feel__note">Filmed the way they are worn — bridges, backstreets, the last bus home.</p>
         </div>
         <div class="feel__col feel__col--r"><div class="feel__colTrack" id="feelR"></div></div>
       </div>
     </section>
 
-    <!-- ============ STYLE IN MOTION (REELS) ============ -->
+    <!-- ============ REELS ============ -->
     <section class="sec reels" id="reels" data-section="muse">
       <div class="sec__head">
         <div>
@@ -188,7 +182,7 @@
           <h2 class="h2" data-split>Style, <em class="grad">in motion.</em></h2>
         </div>
         <div class="reels__side" data-reveal>
-          <p>Seven fits filmed the way they are lived in — a rooftop at dusk, a market at noon, a long walk home. Tap a reel to step inside.</p>
+          <p>Six fits from around Aotearoa — a bridge in Wellington, a park in Auckland, a terrace in Queenstown. Tap a reel to step inside and shop what you see.</p>
           <button class="dark-dot" id="reelsPause" aria-label="Pause reels"><svg viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></svg></button>
         </div>
       </div>
@@ -197,13 +191,13 @@
 
     <!-- ============ SIGNATURE ============ -->
     <section class="sec sig" id="signature" data-section>
-      <div class="eyebrow center" data-reveal>For the big night and every night after</div>
+      <div class="eyebrow center" data-reveal>Our best sellers, season after season</div>
       <h2 class="h2 center" data-split>The Signature <em class="grad">Collection</em></h2>
       <div class="fan" id="fan"></div>
       <div class="sig__info">
         <div class="sig__name" id="sigName"></div>
         <div class="sig__sub" id="sigSub"></div>
-        <button class="pill pill--red" id="sigAdd">Add to cart</button>
+        <button class="pill pill--primary" id="sigAdd">Add to bag</button>
         <div class="sig__dots" id="sigDots"></div>
       </div>
     </section>
@@ -212,7 +206,7 @@
     <section class="sec mix" id="mix" data-section>
       <div class="mix__top">
         <div class="mix__brand">Korva Capsule</div>
-        <div class="mix__offer">Any three pieces, 10% off</div>
+        <div class="mix__offer">Any three tees or pants, 10% off</div>
         <div class="mix__toast" id="mixToast"></div>
         <h2 class="h2 center" data-split>Three pieces, <em class="grad">one fit.</em></h2>
       </div>
@@ -220,14 +214,14 @@
       <div class="mix__bottom">
         <ol class="mix__slots" id="mixSlots"></ol>
         <div class="mix__picker">
-          <div class="mix__prompt" id="mixPrompt">Choose a fabric to weave it in</div>
+          <div class="mix__prompt" id="mixPrompt">Choose a piece to weave it in</div>
           <div class="swatches" id="swatches"></div>
         </div>
         <div class="mix__price">
           <s id="mixWas"></s>
-          <b id="mixNow">₹0</b>
+          <b id="mixNow"></b>
           <small id="mixLeft">3 more to weave</small>
-          <button class="pill pill--gold" id="mixAdd">Add the capsule to bag</button>
+          <button class="pill pill--lime" id="mixAdd">Add the capsule to bag</button>
         </div>
       </div>
     </section>
@@ -237,23 +231,34 @@
   <footer class="footer" id="footer">
     <div class="footer__card">
       <div class="footer__top">
-        <h2 class="footer__title" data-split>Made with heart.<br/>Worn for <em class="gold">today.</em></h2>
+        <h2 class="footer__title" data-split>Made with heart.<br/>Worn for <em class="lime">today.</em></h2>
         <div class="footer__brand">KORVA</div>
       </div>
       <div class="footer__cols">
         <div><h4>Shop</h4><a href="#rack">T-shirts</a><a href="#rack">Pants</a><a href="#rack">Shoes</a><a href="#rack">Accessories</a></div>
-        <div><h4>Explore</h4><a href="#moods">Our story</a><a href="#devote">Craftsmanship</a><a href="#look">The lookbook</a><a href="#muse">Store locator</a></div>
-        <div><h4>Support</h4><a href="#footer">Contact us</a><a href="#footer">Shipping &amp; delivery</a><a href="#footer">Returns &amp; exchanges</a></div>
+        <div><h4>Explore</h4><a href="#moods">Our story</a><a href="#devote">Craftsmanship</a><a href="#look">The lookbook</a><a href="#muse">The muse</a></div>
+        <div><h4>Help</h4><a href="checkout.html">Checkout</a><a href="#footer">Shipping in NZ</a><a href="#footer">30-day returns</a><a href="#footer">Contact us</a></div>
         <div><h4>Legal</h4><a href="#footer">Terms &amp; conditions</a><a href="#footer">Privacy policy</a></div>
         <div class="footer__news"><h4>Stay updated</h4><p>New drops, private previews and styling notes, delivered thoughtfully.</p>
           <form id="newsForm"><input type="email" placeholder="Your email address" required /><button aria-label="Subscribe"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
         </div>
       </div>
-      <div class="footer__legal">© 2026 KORVA Street Studio. All rights reserved.</div>
+      <div class="footer__pay">
+        <span>We accept</span>
+        <div class="paymarks">
+          <span class="pm pm--apple"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8C7 7.4 5.6 8.3 4.8 9.7c-1.6 2.8-.4 6.9 1.2 9.1.8 1.1 1.7 2.3 2.8 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.7-2.2c.9-1.3 1.2-2.5 1.2-2.6 0 0-2.3-.9-2.3-3.7zM14.2 5.8c.6-.8 1-1.8.9-2.8-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.7 1 .1 2-.5 2.6-1.3z" fill="currentColor"/></svg>Pay</span>
+          <span class="pm pm--google"><b class="g">G</b>Pay</span>
+          <span class="pm pm--visa">VISA</span>
+          <span class="pm pm--mc"><i></i><i></i></span>
+          <span class="pm pm--afterpay">afterpay</span>
+          <span class="pm pm--klarna">Klarna.</span>
+          <span class="pm pm--gem">gem</span>
+        </div>
+      </div>
+      <div class="footer__legal">© 2026 KORVA Studio, Aotearoa New Zealand. Prices in NZD, GST included.</div>
     </div>
   </footer>
 
-  <!-- ticker -->
   <div class="ticker"><div class="ticker__track" id="ticker"></div></div>
 
   <!-- story viewer -->
@@ -269,7 +274,12 @@
     <div class="drawer__panel">
       <div class="drawer__head"><h3>Your bag</h3><button class="icon-btn icon-btn--dark" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
       <ul class="drawer__list" id="drawerList"></ul>
-      <div class="drawer__foot"><div><span>Subtotal</span><b id="drawerTotal">₹0</b></div><button class="pill pill--red">Checkout</button></div>
+      <div class="drawer__foot">
+        <div class="drawer__ship" id="drawerShip"></div>
+        <div><span>Subtotal</span><b id="drawerTotal"></b></div>
+        <a class="pill pill--primary" href="checkout.html">Checkout</a>
+        <small class="drawer__afterpay" id="drawerAfterpay"></small>
+      </div>
     </div>
   </div>
 
@@ -277,7 +287,6 @@
 
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="data.js"></script>
-  <script src="garments.js"></script>
   <script src="weave.js"></script>
   <script src="app.js"></script>
 </body>

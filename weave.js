@@ -25,11 +25,14 @@
       g.beginPath(); g.moveTo(0, 8); g.lineTo(TW, 8); g.moveTo(0, TH - 8); g.lineTo(TW, TH - 8); g.stroke();
     } else if (f.kind === 'print') {
       g.fillStyle = b;
-      for (let x = 0; x < TW; x += 64) {
-        g.beginPath(); g.moveTo(x, TH); g.lineTo(x + 32, TH * 0.25); g.lineTo(x + 64, TH); g.lineTo(x + 52, TH); g.lineTo(x + 32, TH * 0.48); g.lineTo(x + 12, TH); g.closePath(); g.fill();
-        for (let i = 0; i < 10; i++) { g.globalAlpha = 0.5; g.beginPath(); g.arc(x + Math.random() * 64, Math.random() * TH, 1.5 + Math.random() * 3, 0, 7); g.fill(); }
-        g.globalAlpha = 1;
+      for (let x = 0; x < TW; x += 72) {
+        g.fillRect(x + 8, 10, 44, 6); g.fillRect(x + 8, TH - 16, 44, 6);
+        g.strokeStyle = b; g.lineWidth = 4; g.strokeRect(x + 14, 24, 32, TH - 48);
+        g.beginPath(); g.arc(x + 30, TH / 2, 9, 0, 7); g.fill();
       }
+    } else if (f.kind === 'jersey') {
+      g.strokeStyle = b; g.lineWidth = 1; g.globalAlpha = 0.55;
+      for (let y = 0; y < TH; y += 4) { g.beginPath(); for (let x = 0; x <= TW; x += 6) { g.lineTo(x, y + (x / 6 % 2 ? 1.5 : 0)); } g.stroke(); }
     } else if (f.kind === 'twill') {
       g.strokeStyle = b; g.lineWidth = 3; g.globalAlpha = 0.5;
       for (let x = -TH; x < TW; x += 7) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x + TH, TH); g.stroke(); }

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout — KORVA</title>
+  <meta name="description" content="Secure checkout for KORVA. Pay with Apple Pay, Google Pay, Visa, Mastercard, Afterpay, Klarna or Gem." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="checkout.css" />
+</head>
+<body class="co">
+  <div class="co-test" role="note"><b>Test mode</b> This checkout is a working demo: no payment is taken and card details never leave your browser.</div>
+
+  <header class="co-head">
+    <a class="co-logo" href="index.html"><span class="mark">K</span><span>KORVA</span></a>
+    <div class="co-steps" aria-hidden="true"><span class="is-on">Bag</span><i></i><span class="is-on">Details</span><i></i><span id="stepPay">Payment</span><i></i><span id="stepDone">Done</span></div>
+    <div class="co-secure"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Secure checkout</div>
+  </header>
+
+  <!-- empty bag -->
+  <section class="co-empty" id="coEmpty" hidden>
+    <h1>Your bag is empty.</h1>
+    <p>Pick a tee, some denim or a fresh pair of sneakers and come back.</p>
+    <a class="pill pill--primary" href="index.html#rack">Browse the Rack <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+  </section>
+
+  <!-- order complete -->
+  <section class="co-done" id="coDone" hidden>
+    <div class="co-done__check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h1>Order confirmed.</h1>
+    <p id="doneText"></p>
+    <div class="co-done__card" id="doneCard"></div>
+    <a class="pill pill--primary" href="index.html">Back to the store <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+  </section>
+
+  <main class="co-grid" id="coMain">
+    <form class="co-form" id="coForm" novalidate>
+      <!-- express -->
+      <section class="co-card">
+        <h2>Express checkout</h2>
+        <div class="express">
+          <button type="button" class="xbtn xbtn--apple" data-wallet="Apple Pay" aria-label="Pay with Apple Pay"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8C7 7.4 5.6 8.3 4.8 9.7c-1.6 2.8-.4 6.9 1.2 9.1.8 1.1 1.7 2.3 2.8 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.7-2.2c.9-1.3 1.2-2.5 1.2-2.6 0 0-2.3-.9-2.3-3.7zM14.2 5.8c.6-.8 1-1.8.9-2.8-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.7 1 .1 2-.5 2.6-1.3z" fill="currentColor"/></svg>Pay</button>
+          <button type="button" class="xbtn xbtn--google" data-wallet="Google Pay" aria-label="Pay with Google Pay"><b class="g">G</b>Pay</button>
+          <button type="button" class="xbtn xbtn--afterpay" data-bnpl="afterpay" aria-label="Check out with Afterpay">afterpay</button>
+        </div>
+        <div class="or"><span>or pay another way</span></div>
+      </section>
+
+      <!-- contact -->
+      <section class="co-card">
+        <h2><span>1</span>Contact</h2>
+        <div class="row">
+          <label class="fld"><span>Email</span><input type="email" name="email" autocomplete="email" required placeholder="you@example.co.nz" /></label>
+          <label class="fld"><span>Mobile</span><input type="tel" name="phone" autocomplete="tel" required placeholder="021 123 4567" pattern="^(\+?64|0)\s?2\d[\d\s]{6,10}$" /></label>
+        </div>
+        <label class="check"><input type="checkbox" name="news" checked /> Email me new drops and member offers</label>
+      </section>
+
+      <!-- delivery -->
+      <section class="co-card">
+        <h2><span>2</span>Delivery address</h2>
+        <div class="row">
+          <label class="fld"><span>First name</span><input name="first" autocomplete="given-name" required /></label>
+          <label class="fld"><span>Last name</span><input name="last" autocomplete="family-name" required /></label>
+        </div>
+        <label class="fld"><span>Street address</span><input name="street" autocomplete="address-line1" required placeholder="12 Cuba Street" /></label>
+        <div class="row">
+          <label class="fld"><span>Apartment, unit (optional)</span><input name="unit" autocomplete="address-line2" /></label>
+          <label class="fld"><span>Suburb</span><input name="suburb" autocomplete="address-level3" required placeholder="Te Aro" /></label>
+        </div>
+        <div class="row row--3">
+          <label class="fld"><span>Town / city</span><input name="city" autocomplete="address-level2" required placeholder="Wellington" /></label>
+          <label class="fld"><span>Region</span>
+            <select name="region" autocomplete="address-level1" required>
+              <option value="">Select…</option>
+              <option>Northland</option><option>Auckland</option><option>Waikato</option><option>Bay of Plenty</option><option>Gisborne</option><option>Hawke's Bay</option><option>Taranaki</option><option>Manawatū-Whanganui</option><option>Wellington</option><option>Tasman</option><option>Nelson</option><option>Marlborough</option><option>West Coast</option><option>Canterbury</option><option>Otago</option><option>Southland</option>
+            </select>
+          </label>
+          <label class="fld"><span>Postcode</span><input name="postcode" autocomplete="postal-code" required inputmode="numeric" pattern="^\d{4}$" maxlength="4" placeholder="6011" /></label>
+        </div>
+        <label class="fld fld--static"><span>Country</span><input value="New Zealand" readonly tabindex="-1" /></label>
+      </section>
+
+      <!-- shipping -->
+      <section class="co-card">
+        <h2><span>3</span>Shipping</h2>
+        <div class="opts" id="shipOpts">
+          <label class="opt"><input type="radio" name="ship" value="standard" checked /><div><b>Standard · NZ Post</b><small>2–4 working days, tracked</small></div><em data-ship="standard"></em></label>
+          <label class="opt"><input type="radio" name="ship" value="express" /><div><b>Express courier</b><small>Next working day to main centres</small></div><em data-ship="express"></em></label>
+          <label class="opt"><input type="radio" name="ship" value="collect" /><div><b>Click &amp; Collect</b><small>Ready in 2 hours · Ponsonby Rd studio, Auckland</small></div><em data-ship="collect"></em></label>
+        </div>
+      </section>
+
+      <!-- payment -->
+      <section class="co-card">
+        <h2><span>4</span>Payment</h2>
+        <div class="pay" id="payOpts">
+          <div class="pay__opt">
+            <label class="pay__head"><input type="radio" name="pay" value="card" checked /><b>Credit or debit card</b><span class="paymarks"><span class="pm pm--visa">VISA</span><span class="pm pm--mc"><i></i><i></i></span></span></label>
+            <div class="pay__body">
+              <label class="fld fld--card"><span>Card number</span><input name="cc" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="23" /><i class="brand" id="ccBrand"></i></label>
+              <div class="row row--3">
+                <label class="fld"><span>Expiry</span><input name="exp" inputmode="numeric" autocomplete="cc-exp" placeholder="MM / YY" maxlength="7" /></label>
+                <label class="fld"><span>Security code</span><input name="cvc" inputmode="numeric" autocomplete="cc-csc" placeholder="CVC" maxlength="4" /></label>
+                <label class="fld"><span>Name on card</span><input name="ccname" autocomplete="cc-name" /></label>
+              </div>
+              <p class="hint">Test card: 4242 4242 4242 4242, any future date, any 3-digit CVC.</p>
+            </div>
+          </div>
+          <div class="pay__opt">
+            <label class="pay__head"><input type="radio" name="pay" value="applepay" /><b>Apple Pay</b><span class="paymarks"><span class="pm pm--apple"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8C7 7.4 5.6 8.3 4.8 9.7c-1.6 2.8-.4 6.9 1.2 9.1.8 1.1 1.7 2.3 2.8 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.7-2.2c.9-1.3 1.2-2.5 1.2-2.6 0 0-2.3-.9-2.3-3.7zM14.2 5.8c.6-.8 1-1.8.9-2.8-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.7 1 .1 2-.5 2.6-1.3z" fill="currentColor"/></svg>Pay</span></span></label>
+            <div class="pay__body"><p>Confirm with Face ID, Touch ID or your passcode in the Apple Pay sheet.</p></div>
+          </div>
+          <div class="pay__opt">
+            <label class="pay__head"><input type="radio" name="pay" value="googlepay" /><b>Google Pay</b><span class="paymarks"><span class="pm pm--google"><b class="g">G</b>Pay</span></span></label>
+            <div class="pay__body"><p>Pay with a card saved to your Google account.</p></div>
+          </div>
+          <div class="pay__opt">
+            <label class="pay__head"><input type="radio" name="pay" value="afterpay" /><b>Afterpay</b><span class="paymarks"><span class="pm pm--afterpay">afterpay</span></span></label>
+            <div class="pay__body"><p>Four interest-free payments, every two weeks. Available on orders from NZ$1 to NZ$2,000.</p><div class="sched" id="afterpaySched"></div></div>
+          </div>
+          <div class="pay__opt">
+            <label class="pay__head"><input type="radio" name="pay" value="klarna" /><b>Klarna</b><span class="paymarks"><span class="pm pm--klarna">Klarna.</span></span></label>
+            <div class="pay__body">
+              <div class="opts opts--mini">
+                <label class="opt"><input type="radio" name="klarna" value="4" checked /><div><b>Pay in 4</b><small id="klarna4"></small></div></label>
+                <label class="opt"><input type="radio" name="klarna" value="30" /><div><b>Pay in 30 days</b><small>Nothing to pay today</small></div></label>
+              </div>
+            </div>
+          </div>
+          <div class="pay__opt">
+            <label class="pay__head"><input type="radio" name="pay" value="gem" /><b>Gem Interest Free</b><span class="paymarks"><span class="pm pm--gem">gem</span></span></label>
+            <div class="pay__body"><p id="gemText"></p><p class="hint">Gem Visa is subject to approval; fees, terms and conditions apply.</p></div>
+          </div>
+        </div>
+        <div class="err" id="formErr" role="alert"></div>
+        <button class="pill pill--primary paybtn" id="payBtn" type="submit">Pay <span id="payAmt"></span></button>
+        <p class="legal">By placing your order you agree to the KORVA terms of sale. 30-day returns across New Zealand.</p>
+      </section>
+    </form>
+
+    <!-- summary -->
+    <aside class="co-sum" id="coSum">
+      <div class="co-card co-card--sum">
+        <h2>Order summary <small id="sumCount"></small></h2>
+        <ul class="sum__list" id="sumList"></ul>
+        <form class="promo" id="promoForm"><input id="promo" placeholder="Discount code" autocomplete="off" /><button>Apply</button></form>
+        <div class="promo__msg" id="promoMsg"></div>
+        <dl class="sum__totals">
+          <div><dt>Subtotal</dt><dd id="sumSub"></dd></div>
+          <div id="sumDiscRow" hidden><dt>Discount</dt><dd id="sumDisc"></dd></div>
+          <div><dt>Shipping</dt><dd id="sumShip"></dd></div>
+          <div class="sum__total"><dt>Total <small>NZD</small></dt><dd id="sumTotal"></dd></div>
+          <div class="sum__gst"><dt>Includes GST (15%)</dt><dd id="sumGst"></dd></div>
+        </dl>
+        <div class="sum__bnpl" id="sumBnpl"></div>
+        <div class="sum__trust"><span>✓ Free NZ shipping over $150</span><span>✓ 30-day returns</span><span>✓ Secure payment</span></div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- wallet / provider sheet -->
+  <div class="sheet" id="sheet" aria-hidden="true">
+    <div class="sheet__scrim" data-close></div>
+    <div class="sheet__panel" id="sheetPanel"></div>
+  </div>
+
+  <div class="processing" id="processing"><div class="spinner"></div><p id="procText">Processing payment…</p></div>
+
+  <script src="data.js"></script>
+  <script src="checkout.js"></script>
+</body>
+</html>

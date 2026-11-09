@@ -1,178 +1,163 @@
-/* KORVA — catalogue data. Images live in assets/img (Unsplash licence). */
-window.CUR = '₹';
+/* KORVA — catalogue and content. Everything on the site and the checkout reads from here.
+   Prices are in New Zealand dollars, GST inclusive. */
+window.CURRENCY = 'NZD';
+const PROD = (n) => `assets/products/${n}.webp`;
 const IMG = (n) => `assets/img/${n}.jpg`;
+const LOOK = (n) => `assets/looks/${n}.jpg`;
 
+/* 20 products: 5 per category. `rail` items hang on the rack, the rest sit on its shelf.
+   `hanger: true` means the photo has no hanger of its own, so the rack draws one. */
 window.PRODUCTS = {
   // T-shirts
-  t1: { name: 'Ivory Essential Tee', cat: 'tees', price: 1890, img: IMG('p-tee-white') },
-  t2: { name: 'Neko Print Tee', cat: 'tees', price: 2290, img: IMG('p-tee-print') },
-  t3: { name: 'Midnight Script Tee', cat: 'tees', price: 2190, img: IMG('p-tee-black') },
-  t4: { name: 'Studio Logo Tee', cat: 'tees', price: 2090, img: IMG('p-tee-hanger') },
-  t5: { name: 'Chalk Heavyweight Tee', cat: 'tees', price: 2490, img: IMG('p-tee-grey') },
-  t6: { name: 'Hotel Club Tee', cat: 'tees', price: 2390, img: IMG('p-tee-hotel') },
+  t1: { name: 'White Essential Tee', cat: 'tees', price: 49, img: PROD('t1'), color: '#f1f1f1', rail: true, desc: '200 GSM combed cotton with a clean crew neck. The everyday white tee.' },
+  t2: { name: 'Black Crest Tee', cat: 'tees', price: 59, img: PROD('t2'), back: PROD('t2-back'), color: '#16161a', rail: true, desc: 'Heavyweight black cotton, small crest on the chest and a large print on the back.' },
+  t3: { name: 'Teal Pocket Tee', cat: 'tees', price: 55, img: PROD('t3'), color: '#1f7f7a', rail: true, hanger: true, desc: 'Garment-dyed teal with a chest pocket and a woven tab.' },
+  t4: { name: 'Lucky Cat Print Tee', cat: 'tees', price: 65, img: PROD('t4'), color: '#e9e1d2', rail: true, hanger: true, desc: 'Bone cotton with a cobalt screen print, cut slightly boxy.' },
+  t5: { name: 'Mustard Heavyweight Tee', cat: 'tees', price: 52, img: PROD('t5'), color: '#d4a915', rail: false, desc: '240 GSM cotton that holds its shape, folded and ready to go.' },
   // Pants
-  pa1: { name: 'Desert Chino Jogger', cat: 'pants', price: 3490, img: IMG('p-chino') },
-  pa2: { name: 'Indigo Selvedge Denim', cat: 'pants', price: 4890, img: IMG('p-jeans') },
-  pa3: { name: 'Raw Black Straight', cat: 'pants', price: 4290, img: IMG('p-jeans-flat') },
-  pa4: { name: 'Washed Denim Classic', cat: 'pants', price: 3990, img: IMG('p-denim-pile') },
-  pa5: { name: 'Sage Track Pant', cat: 'pants', price: 2990, img: IMG('p-track') },
-  pa6: { name: 'Blush Cargo Jogger', cat: 'pants', price: 3290, img: IMG('l-2') },
+  p1: { name: 'Black Slim Jean', cat: 'pants', price: 119, img: PROD('p1'), color: '#1d2230', rail: true, hanger: true, desc: 'Stretch denim in a slim, straight leg. Washed black.' },
+  p2: { name: 'Khaki Chino Jogger', cat: 'pants', price: 99, img: PROD('p2'), color: '#b49b6c', rail: true, hanger: true, desc: 'Soft cotton twill with a tapered, cuffed leg.' },
+  p3: { name: 'Light Wash Straight Jean', cat: 'pants', price: 129, img: PROD('p3'), color: '#9fc1dc', rail: true, desc: 'Rigid 12oz denim, bleached light, with a relaxed straight leg.' },
+  p4: { name: 'Mid Blue Skinny Jean', cat: 'pants', price: 115, img: PROD('p4'), color: '#4f7bb0', rail: true, hanger: true, desc: 'A close-fitting jean in faded mid blue with whiskered thighs.' },
+  p5: { name: 'Blush Cargo Jogger', cat: 'pants', price: 95, img: PROD('p5'), color: '#e6b3a3', rail: true, hanger: true, desc: 'Lightweight cargo jogger with an elastic waist and cuffs.' },
   // Shoes
-  s1: { name: 'Crimson Knit Runner', cat: 'shoes', price: 7990, img: IMG('s-red') },
-  s2: { name: 'Maroon Skate Low', cat: 'shoes', price: 4990, img: IMG('s-maroon') },
-  s3: { name: 'Tan Court Classic', cat: 'shoes', price: 8490, img: IMG('s-tan') },
-  s4: { name: 'Volt Trainer', cat: 'shoes', price: 6990, img: IMG('s-volt') },
-  s5: { name: 'Cherry High-Top', cat: 'shoes', price: 4490, img: IMG('s-hightop') },
-  s6: { name: 'Pastel Court Low', cat: 'shoes', price: 7490, img: IMG('s-pastel') },
-  s7: { name: 'Olive Mesh Runner', cat: 'shoes', price: 6490, img: IMG('s-olive') },
-  s8: { name: 'Sunset Low', cat: 'shoes', price: 5490, img: IMG('s-orange') },
-  s9: { name: 'Coral Air Runner', cat: 'shoes', price: 8990, img: IMG('s-runner') },
-  s10: { name: 'Cognac Derby', cat: 'shoes', price: 9490, img: IMG('s-derby') },
-  s11: { name: 'White Court Sneaker', cat: 'shoes', price: 5990, img: IMG('s-court') },
+  s1: { name: 'White Court Sneaker', cat: 'shoes', price: 159, img: PROD('s1'), color: '#f3f3f0', desc: 'Perforated leather upper on a cupsole. Goes with everything.' },
+  s2: { name: 'Crimson Knit Runner', cat: 'shoes', price: 219, img: PROD('s2'), color: '#c8202b', desc: 'One-piece knit upper on a soft, flexible foam sole.' },
+  s3: { name: 'Cherry Canvas High-Top', cat: 'shoes', price: 119, img: PROD('s3'), color: '#b3192e', desc: 'Classic canvas high-top with a rubber toe cap.' },
+  s4: { name: 'Tan Canvas Court', cat: 'shoes', price: 229, img: PROD('s4'), color: '#b47a3c', desc: 'Duck canvas and wool in tan, on a chunky court sole.' },
+  s5: { name: 'Maroon Skate Low', cat: 'shoes', price: 129, img: PROD('s5'), color: '#6e1b2c', desc: 'Suede and canvas skate shoe on a grippy waffle sole.' },
   // Accessories
-  a1: { name: 'Round Gold Shades', cat: 'acc', price: 2990, img: IMG('a-round') },
-  a2: { name: 'Black Wayfarer', cat: 'acc', price: 3490, img: IMG('a-wayfarer') },
-  a3: { name: 'Fawn Leather Watch', cat: 'acc', price: 6990, img: IMG('a-watch') },
-  a4: { name: 'Arctic Smartwatch', cat: 'acc', price: 12990, img: IMG('a-smartwatch') },
-  a5: { name: 'Chalk Trucker Cap', cat: 'acc', price: 1490, img: IMG('a-cap') },
-  a6: { name: 'Navy Day Backpack', cat: 'acc', price: 4990, img: IMG('a-backpack') },
-  a7: { name: 'Saddle Bifold Wallet', cat: 'acc', price: 2490, img: IMG('a-wallet') },
-  a8: { name: 'Wicker Top-Handle', cat: 'acc', price: 5490, img: IMG('a-basket') },
-  a9: { name: 'Gold Knot Studs', cat: 'acc', price: 1990, img: IMG('a-earrings') },
+  a1: { name: 'Black Wayfarer Sunglasses', cat: 'acc', price: 189, img: PROD('a1'), color: '#141414', desc: 'Polarised lenses in a glossy black acetate frame.' },
+  a2: { name: 'Midnight Sport Watch', cat: 'acc', price: 399, img: PROD('a2'), color: '#2a2a2e', desc: 'A black smart sport watch with a soft-touch band.' },
+  a3: { name: 'White Trucker Cap', cat: 'acc', price: 45, img: PROD('a3'), color: '#efefef', desc: 'Foam front, mesh back, snap closure.' },
+  a4: { name: 'Round Gold Sunglasses', cat: 'acc', price: 169, img: PROD('a4'), color: '#c9a050', desc: 'Thin gold wire frame with green-grey lenses.' },
+  a5: { name: 'Navy Day Backpack', cat: 'acc', price: 139, img: PROD('a5'), color: '#26324f', desc: 'Water-resistant canvas, padded laptop sleeve, room for the day.' },
 };
-
-window.HERO = [
-  { img: IMG('hero1'), eyebrow: 'T-SHIRTS · PANTS · SHOES · ACCESSORIES', title: 'Worn for the Streets.', text: 'KORVA brings the studio floor to your street: heavyweight cotton, honest denim and soles built to walk — cut in small batches and finished by hand.', main: true },
-  { img: IMG('hero2'), eyebrow: '02 · THE COTTON', title: 'Cotton that holds its shape.', text: '240 GSM, garment-dyed, so the collar never lets go.' },
-  { img: IMG('hero3'), eyebrow: '03 · THE DENIM', title: 'Denim that learns your stride.', text: 'Selvedge and rigid washes that break in, not down.' },
-  { img: IMG('hero4'), eyebrow: '04 · THE SOLE', title: 'A sole for every step after.', text: 'Bought once, laced for years.' },
-];
-
-window.MOODS = [
-  { name: 'Street Edit', img: IMG('m-street'), tint: '#f2c14e' },
-  { name: 'Denim Days', img: IMG('m-denim'), tint: '#7fb3d5' },
-  { name: 'Tailored Icons', img: IMG('m-tailored'), tint: '#c9a27e' },
-  { name: 'Athleisure', img: IMG('m-athleisure'), tint: '#f5b041' },
-  { name: 'Summer Shades', img: IMG('m-summer'), tint: '#48c9b0' },
-  { name: 'Monochrome', img: IMG('m-mono'), tint: '#c0392b' },
-];
-
-window.LOOKS = [
-  { name: 'Ivory Street', img: IMG('l-1'), pieces: ['a3', 't1', 'pa3', 's11'], spots: [[46, 44], [52, 30], [50, 62], [40, 90]] },
-  { name: 'Blush Hour', img: IMG('l-2'), pieces: ['a8', 't5', 'pa6', 's6'], spots: [[30, 14], [50, 10], [48, 52], [52, 92]] },
-  { name: 'Camel Studio', img: IMG('l-3'), pieces: ['a1', 't1', 'pa1', 's3'], spots: [[52, 14], [50, 34], [44, 62], [36, 92]] },
-  { name: 'Neon Stripe', img: IMG('l-4'), pieces: ['a9', 't3', 'pa3', 's5'], spots: [[56, 16], [54, 34], [46, 64], [44, 92]] },
-  { name: 'Peace Sign', img: IMG('l-5'), pieces: ['a5', 't3', 'pa5', 's11'], spots: [[50, 12], [50, 38], [50, 74], [52, 94]] },
-  { name: 'Weekend White', img: IMG('l-6'), pieces: ['a5', 't1', 'pa2', 's9'], spots: [[50, 22], [50, 52], [46, 86], [50, 96]] },
-  { name: 'Milan Blue', img: IMG('l-7'), pieces: ['a8', 't5', 'pa4', 's11'], spots: [[54, 30], [46, 40], [50, 66], [48, 92]] },
-  { name: 'Arcade Rose', img: IMG('l-8'), pieces: ['a2', 't6', 'pa3', 's2'], spots: [[54, 20], [50, 42], [50, 70], [48, 94]] },
-];
-
-/* Pick a Fit — colourful tilt cards */
-window.DECK = [
-  { id: 's1', title: ['CRIMSON', 'RUNNER'], bg: '#e3121b' },
-  { id: 't2', title: ['NEKO', 'PRINT'], bg: '#1f8ef1' },
-  { id: 'pa2', title: ['INDIGO', 'DENIM'], bg: '#f39c12' },
-  { id: 's4', title: ['VOLT', 'TRAINER'], bg: '#6c2bd9' },
-  { id: 'a2', title: ['BLACK', 'WAYFARER'], bg: '#f5b800' },
-  { id: 's2', title: ['MAROON', 'SKATE'], bg: '#10b3a3' },
-  { id: 't1', title: ['IVORY', 'ESSENTIAL'], bg: '#e0144c' },
-  { id: 'a5', title: ['TRUCKER', 'CAP'], bg: '#ff2d87' },
-  { id: 's6', title: ['PASTEL', 'COURT'], bg: '#18c63a' },
-  { id: 'a3', title: ['FAWN', 'WATCH'], bg: '#ff6a00' },
-  { id: 'pa5', title: ['SAGE', 'TRACK'], bg: '#3b5bff' },
-];
-
-/* The Rack — drawn garments (see garments.js) */
-window.RACK = [
-  { cat: 'tees', type: 'tee', name: 'Ivory Essential Tee', price: 1890, c: '#f3ecdf', c2: '#d9cdb6', pat: 'solid' },
-  { cat: 'tees', type: 'tee', name: 'Crimson Ringer Tee', price: 2090, c: '#c8102e', c2: '#f3ecdf', pat: 'ringer' },
-  { cat: 'tees', type: 'tee', name: 'Midnight Graphic Tee', price: 2290, c: '#1c1d29', c2: '#f5b800', pat: 'graphic' },
-  { cat: 'tees', type: 'tee', name: 'Breton Stripe Tee', price: 2190, c: '#f6f2ea', c2: '#1d3c8f', pat: 'stripe' },
-  { cat: 'tees', type: 'tee', name: 'Mustard Pocket Tee', price: 1990, c: '#e2a523', c2: '#b9821a', pat: 'pocket' },
-  { cat: 'tees', type: 'longsleeve', name: 'Forest Waffle Long-Sleeve', price: 2690, c: '#1f6f4a', c2: '#174f36', pat: 'solid' },
-  { cat: 'tees', type: 'tee', name: 'Sky Madras Tee', price: 2390, c: '#7fc3f0', c2: '#ff6a8a', pat: 'check' },
-  { cat: 'tees', type: 'longsleeve', name: 'Rani Pink Long-Sleeve', price: 2590, c: '#e0146c', c2: '#a50e50', pat: 'solid' },
-  { cat: 'pants', type: 'pants', name: 'Indigo Selvedge Denim', price: 4890, c: '#27407a', c2: '#e39b3a', pat: 'denim' },
-  { cat: 'pants', type: 'pants', name: 'Raw Black Straight', price: 4290, c: '#1d1f24', c2: '#5a5d66', pat: 'denim' },
-  { cat: 'pants', type: 'pants', name: 'Desert Chino', price: 3490, c: '#cfb48a', c2: '#a88e63', pat: 'solid' },
-  { cat: 'pants', type: 'cargo', name: 'Olive Camo Cargo', price: 3790, c: '#5f6b3a', c2: '#3c4426', pat: 'camo' },
-  { cat: 'pants', type: 'jogger', name: 'Heather Grey Jogger', price: 2990, c: '#9aa0a8', c2: '#7d838b', pat: 'solid' },
-  { cat: 'pants', type: 'shorts', name: 'Madras Check Shorts', price: 2490, c: '#f2c14e', c2: '#d0103a', pat: 'check' },
-  { cat: 'shoes', type: 'sneaker', name: 'Crimson Court Low', price: 6990, c: '#d0103a', c2: '#ffffff', pat: 'solid' },
-  { cat: 'shoes', type: 'sneaker', name: 'Chalk Everyday Sneaker', price: 5990, c: '#f4f4f0', c2: '#1f8ef1', pat: 'solid' },
-  { cat: 'shoes', type: 'hightop', name: 'Night High-Top', price: 5490, c: '#1c1d29', c2: '#f4f4f0', pat: 'solid' },
-  { cat: 'shoes', type: 'sneaker', name: 'Volt Runner', price: 6490, c: '#b6e62e', c2: '#1c1d29', pat: 'solid' },
-  { cat: 'shoes', type: 'hightop', name: 'Mustard Canvas High', price: 4290, c: '#e2a523', c2: '#f4f4f0', pat: 'solid' },
-  { cat: 'acc', type: 'cap', name: 'Navy Six-Panel Cap', price: 1490, c: '#1d3c8f', c2: '#f4f4f0', pat: 'solid' },
-  { cat: 'acc', type: 'cap', name: 'Cherry Dad Cap', price: 1390, c: '#c8102e', c2: '#f4f4f0', pat: 'solid' },
-  { cat: 'acc', type: 'tote', name: 'Canvas Market Tote', price: 1890, c: '#efe4cc', c2: '#c8102e', pat: 'stripe' },
-  { cat: 'acc', type: 'beanie', name: 'Saffron Rib Beanie', price: 1290, c: '#f39c12', c2: '#c8102e', pat: 'solid' },
-  { cat: 'acc', type: 'backpack', name: 'Teal Day Pack', price: 4590, c: '#10b3a3', c2: '#0b7e73', pat: 'solid' },
-];
-window.RACK_CATS = [
+window.CATS = [
   { key: 'all', label: 'All pieces' },
   { key: 'tees', label: 'T-Shirts' },
   { key: 'pants', label: 'Pants' },
   { key: 'shoes', label: 'Shoes' },
   { key: 'acc', label: 'Accessories' },
 ];
+window.CAT_LABEL = { tees: 'T-SHIRT', pants: 'PANTS', shoes: 'SHOES', acc: 'ACCESSORY' };
+window.SIZES = { tees: ['S', 'M', 'L', 'XL'], pants: ['28', '30', '32', '34', '36'], shoes: ['US 7', 'US 8', 'US 9', 'US 10', 'US 11'], acc: ['One size'] };
 
-/* Built for the block — dark product cards */
-window.DEVOTE = [
-  { cat: 'HEAVYWEIGHT TEE', name: 'Chalk Heavyweight', desc: 'Boxy 240 GSM cotton with a rib collar that keeps its shape.', price: 2490, img: IMG('x-hood') },
-  { cat: 'RUNNER', name: 'Crimson Knit Runner', desc: 'A one-piece knit upper on a foam sole made for long days.', price: 7990, img: IMG('s-red') },
-  { cat: 'SELVEDGE DENIM', name: 'Indigo Selvedge', desc: 'Rigid 13oz denim that fades to your own story.', price: 4890, img: IMG('p-jeans') },
-  { cat: 'STATEMENT TEE', name: 'Neon Street Tee', desc: 'Screen-printed by hand, cut long for layering.', price: 2290, img: IMG('m-street') },
-  { cat: 'COURT SHOE', name: 'Tan Court Classic', desc: 'Nubuck upper, gum-tone stitching, built to crease well.', price: 8490, img: IMG('s-tan') },
-  { cat: 'EYEWEAR', name: 'Round Gold Shades', desc: 'Thin gold wire, smoke lenses, made for golden hour.', price: 2990, img: IMG('a-round') },
-  { cat: 'CHINO JOGGER', name: 'Desert Chino', desc: 'Garment-washed twill with a tapered, cuffed leg.', price: 3490, img: IMG('p-chino') },
-  { cat: 'TIMEPIECE', name: 'Fawn Leather Watch', desc: 'A quiet dial on a strap that softens with every wear.', price: 6990, img: IMG('a-watch') },
-  { cat: 'SKATE SHOE', name: 'Maroon Skate Low', desc: 'Suede and canvas on a waffle sole that grips.', price: 4990, img: IMG('s-maroon') },
-  { cat: 'BACKPACK', name: 'Navy Day Pack', desc: 'Water-resistant canvas with room for the whole day.', price: 4990, img: IMG('a-backpack') },
+window.HERO = [
+  { img: IMG('hero1'), eyebrow: 'T-SHIRTS · PANTS · SHOES · ACCESSORIES', title: 'Worn for the Streets.', text: 'Heavyweight tees, honest denim and sneakers built to walk. Designed in Aotearoa, shipped free across New Zealand on orders over $150.', main: true },
+  { img: IMG('hero2'), eyebrow: '02 · THE TEES', title: 'Cotton that holds its shape.', text: 'From the White Essential to the Lucky Cat print.' },
+  { img: IMG('hero3'), eyebrow: '03 · THE DENIM', title: 'Denim that learns your stride.', text: 'Slim black, light wash straight and mid blue skinny.' },
+  { img: IMG('hero4'), eyebrow: '04 · THE SOLES', title: 'A sneaker for every step.', text: 'Court, runner, high-top and skate. Laced for years.' },
 ];
 
-window.FILM = [IMG('x-yellow'), IMG('m-street'), IMG('x-hood'), IMG('x-circle'), IMG('m-summer'), IMG('x-shopper')];
-window.FEEL_L = [IMG('m-denim'), IMG('l-4'), IMG('x-beach'), IMG('l-7'), IMG('x-smile'), IMG('s-hightop')];
-window.FEEL_R = [IMG('m-mono'), IMG('l-8'), IMG('x-suit2'), IMG('m-athleisure'), IMG('x-flatlay'), IMG('a-wayfarer')];
+window.MOODS = [
+  { name: 'Street Edit', img: IMG('m-street') },
+  { name: 'Denim Days', img: IMG('m-denim') },
+  { name: 'Smart Casual', img: IMG('m-tailored') },
+  { name: 'Athleisure', img: IMG('m-athleisure') },
+  { name: 'Summer Shades', img: IMG('m-summer') },
+  { name: 'Monochrome', img: IMG('m-mono') },
+];
 
+/* Try the Look. Spot coordinates are percentages of the photo (x from the left, y from the top),
+   placed on the actual item, and listed in the same order as `pieces`. */
+window.LOOKS = [
+  { name: 'City Walk', img: LOOK('city'), pieces: ['a1', 't1', 'p1', 's1'], spots: [[49, 20], [49, 40], [46, 62], [52, 84]] },
+  { name: 'Khaki Day', img: LOOK('khaki'), pieces: ['t1', 'p2', 's1'], spots: [[45, 21], [39, 50], [43, 88]] },
+  { name: 'Blackout', img: LOOK('black'), pieces: ['a1', 't2', 'a2', 'p1'], spots: [[64, 15], [52, 46], [82, 81], [55, 95]] },
+  { name: 'Weekend White', img: LOOK('white'), pieces: ['a3', 't1', 'a2', 'p1'], spots: [[70, 11], [52, 50], [88, 82], [38, 94]] },
+];
+
+/* Pick a Fit — tilt cards (every product appears once). */
+window.DECK = [
+  { id: 's2', title: ['CRIMSON', 'RUNNER'], bg: '#ff5a36' },
+  { id: 't4', title: ['LUCKY', 'CAT TEE'], bg: '#3a2cff' },
+  { id: 'p3', title: ['LIGHT', 'WASH'], bg: '#ffc93c' },
+  { id: 'a1', title: ['BLACK', 'WAYFARER'], bg: '#c6ff3d' },
+  { id: 't3', title: ['TEAL', 'POCKET'], bg: '#ff4fa3' },
+  { id: 's5', title: ['MAROON', 'SKATE'], bg: '#4cc9ff' },
+  { id: 'p2', title: ['KHAKI', 'JOGGER'], bg: '#7b2cff' },
+  { id: 'a2', title: ['SPORT', 'WATCH'], bg: '#ff8a1f' },
+  { id: 't2', title: ['BLACK', 'CREST'], bg: '#3ce6b0' },
+  { id: 's3', title: ['CHERRY', 'HIGH-TOP'], bg: '#1a1a24' },
+  { id: 'p5', title: ['BLUSH', 'CARGO'], bg: '#2f6bff' },
+  { id: 'a3', title: ['TRUCKER', 'CAP'], bg: '#ff5a36' },
+  { id: 't1', title: ['WHITE', 'ESSENTIAL'], bg: '#9b3cff' },
+  { id: 's1', title: ['WHITE', 'COURT'], bg: '#ffc93c' },
+  { id: 'p1', title: ['BLACK', 'SLIM'], bg: '#c6ff3d' },
+  { id: 'a4', title: ['ROUND', 'GOLD'], bg: '#ff4fa3' },
+  { id: 't5', title: ['MUSTARD', 'HEAVY'], bg: '#3a2cff' },
+  { id: 's4', title: ['TAN', 'COURT'], bg: '#3ce6b0' },
+  { id: 'p4', title: ['MID BLUE', 'SKINNY'], bg: '#ff8a1f' },
+  { id: 'a5', title: ['NAVY', 'DAY PACK'], bg: '#7b2cff' },
+];
+
+/* Built for the block — product cards */
+window.DEVOTE = ['t2', 's2', 'p3', 'a1', 't4', 's4', 'p2', 'a2', 's5', 'a5'];
+
+/* Feel the fit */
+window.FILM = [LOOK('city'), IMG('m-street'), LOOK('white'), IMG('x-circle'), LOOK('tan'), IMG('m-summer')];
+window.FEEL_L = [IMG('m-denim'), LOOK('khaki'), IMG('x-beach'), LOOK('black'), IMG('x-smile')];
+window.FEEL_R = [IMG('m-mono'), LOOK('white'), IMG('m-athleisure'), LOOK('city'), IMG('x-yellow')];
+
+/* Reels — each one features a product from the catalogue that is visible in the photo. */
 window.REELS = [
-  { name: 'Neon Stripe', cat: 'WIDE-LEG TROUSER', place: 'Mint wall, Old Town', desc: 'Black and white stripes that walk louder than you do.', price: 4290, img: IMG('l-4'), dur: '0:22', tint: '#0f6b5c' },
-  { name: 'Red Letter', cat: 'GRAPHIC TEE', place: 'Teal alley, Midtown', desc: 'A red graphic tee under a long black coat — loud and quiet at once.', price: 2290, img: IMG('m-street'), dur: '0:18', tint: '#7a0f1a' },
-  { name: 'Blue Hour', cat: 'HOODED DENIM', place: 'Harbour steps', desc: 'Washed denim over a soft grey hood, made for cold mornings.', price: 5490, img: IMG('x-hood'), dur: '0:31', tint: '#13405e' },
-  { name: 'Mono Rooftop', cat: 'LEATHER & BLACK', place: 'Brick rooftop', desc: 'Black on black, a leather layer and nowhere to be.', price: 9990, img: IMG('m-mono'), dur: '0:16', tint: '#5a2318' },
-  { name: 'Sunny Side', cat: 'SUMMER SHADES', place: 'Yellow wall, Market Rd', desc: 'Round frames and a warm wall at noon.', price: 2990, img: IMG('x-yellow'), dur: '0:24', tint: '#8a6a00' },
-  { name: 'Full Circle', cat: 'UTILITY LAYER', place: 'The round window', desc: 'Ochre chinos, a dark jacket, white sneakers.', price: 6890, img: IMG('x-circle'), dur: '0:19', tint: '#6b4a2b' },
-  { name: 'Easy Smile', cat: 'RINGER TEE', place: 'Studio, Grey Room', desc: 'A navy ringer tee and the easiest denim.', price: 2090, img: IMG('x-smile'), dur: '0:14', tint: '#2a2e3a' },
+  { name: 'City Walk', id: 't1', place: 'Bridge crossing, Wellington', img: LOOK('city'), dur: '0:22', tint: '#24305e' },
+  { name: 'Khaki Day', id: 'p2', place: 'Park path, Auckland', img: LOOK('khaki'), dur: '0:18', tint: '#5a4a1e' },
+  { name: 'Blackout', id: 't2', place: 'Old warehouse, Christchurch', img: LOOK('black'), dur: '0:31', tint: '#1a2d48' },
+  { name: 'Weekend White', id: 'a3', place: 'Back garden, Hamilton', img: LOOK('white'), dur: '0:16', tint: '#1d4a2c' },
+  { name: 'Desert Layer', id: 'p4', place: 'Terrace, Queenstown', img: LOOK('tan'), dur: '0:24', tint: '#6b3f1e' },
+  { name: 'Full Circle', id: 's1', place: 'The round window, Dunedin', img: IMG('x-circle'), dur: '0:19', tint: '#3d4f6a' },
 ];
 
+/* The Signature Collection — best sellers across every category */
 window.SIGNATURE = [
-  { name: 'Midnight Two-Piece', sub: 'Wool blend · Peak lapel', price: 18990, img: IMG('x-suit') },
-  { name: 'Cobalt Commuter', sub: 'Stretch suiting · Slim cut', price: 15990, img: IMG('m-tailored') },
-  { name: 'Ivory Poplin & Tie', sub: 'Cotton poplin · Silk tie', price: 5490, img: IMG('x-shirt') },
-  { name: 'Charcoal Night Suit', sub: 'Wool · Double vent', price: 19990, img: IMG('x-suit2') },
-  { name: 'Camel Overcoat', sub: 'Brushed wool · Relaxed', price: 14990, img: IMG('l-3') },
-  { name: 'After-Hours Blazer', sub: 'Matte twill · Unlined', price: 11990, img: IMG('x-watchwrist') },
-  { name: 'Powder Trench', sub: 'Gabardine · Belted', price: 13490, img: IMG('l-7') },
+  { id: 's1', tint: '#e8e4ff' }, { id: 't2', tint: '#d9ffe9' }, { id: 'p3', tint: '#ffe9d6' },
+  { id: 'a2', tint: '#e0f3ff' }, { id: 't4', tint: '#ffe1ee' }, { id: 's2', tint: '#f4ffd1' }, { id: 'a5', tint: '#efe6ff' },
 ];
 
-/* Three pieces, one fit — fabrics */
+/* Three pieces, one fit — each swatch is a tee or pant from the catalogue */
 window.FABRICS = [
-  { name: 'Madras Check Shorts', price: 2490, kind: 'plaid', cols: ['#f2c14e', '#d0103a', '#1d3c8f', '#1f9e5a'] },
-  { name: 'Indigo Selvedge Denim', price: 4890, kind: 'denim', cols: ['#1f3a7a', '#3557a6'] },
-  { name: 'Ivory Logo Tee', price: 1890, kind: 'print', cols: ['#f3ecdf', '#d98a2b'] },
-  { name: 'Desert Chino', price: 3490, kind: 'twill', cols: ['#cfb48a', '#a88e63'] },
-  { name: 'Rani Pink Track Pant', price: 2990, kind: 'stripe', cols: ['#e0146c', '#f5b800', '#ffffff'] },
-  { name: 'Mustard Pocket Tee', price: 1990, kind: 'twill', cols: ['#e2a523', '#b9821a'] },
-  { name: 'Saffron Stripe Tee', price: 2190, kind: 'stripe', cols: ['#f39c12', '#c8102e', '#f3ecdf'] },
-  { name: 'Olive Camo Cargo', price: 3790, kind: 'camo', cols: ['#5f6b3a', '#3c4426', '#8a8f55', '#2a2d1c'] },
-  { name: 'Sunset Madras Shirt', price: 2690, kind: 'plaid', cols: ['#e0146c', '#1f9e5a', '#f39c12', '#6c2bd9'] },
+  { id: 't1', kind: 'jersey', cols: ['#f4f4f2', '#e2e2de'] },
+  { id: 't2', kind: 'jersey', cols: ['#1a1a1f', '#2c2c33'] },
+  { id: 't3', kind: 'jersey', cols: ['#1f7f7a', '#186661'] },
+  { id: 't4', kind: 'print', cols: ['#ece5d6', '#2342b8'] },
+  { id: 't5', kind: 'jersey', cols: ['#d4a915', '#b88f0c'] },
+  { id: 'p1', kind: 'denim', cols: ['#1d2230', '#3a4256'] },
+  { id: 'p2', kind: 'twill', cols: ['#b49b6c', '#957f55'] },
+  { id: 'p3', kind: 'denim', cols: ['#9fc1dc', '#c6dbea'] },
+  { id: 'p4', kind: 'denim', cols: ['#4f7bb0', '#7099c8'] },
+  { id: 'p5', kind: 'twill', cols: ['#e6b3a3', '#d39b8a'] },
 ];
 
 window.TICKER = [
-  ['TRY THE LOOK', 'Eight looks, styled head to toe'],
-  ['PURE COTTON', '240 GSM cotton cut and sewn in small batches'],
-  ['THE RACK', 'Browse the full rail of tees, pants, shoes and accessories'],
-  ['SIGNATURE', 'Tailored pieces for the night that matters'],
-  ['THE STUDIO', 'Designed in our studio, finished by hand, one drop at a time'],
+  ['FREE SHIPPING', 'Free NZ delivery on orders over $150'],
+  ['TRY THE LOOK', 'Four looks, styled head to toe'],
+  ['PAY YOUR WAY', 'Apple Pay, Google Pay, Visa, Mastercard, Afterpay, Klarna and Gem'],
+  ['THE RACK', '20 pieces: tees, pants, shoes and accessories'],
+  ['EASY RETURNS', '30-day returns across New Zealand'],
 ];
+
+/* Shared helpers used by the store and the checkout */
+window.fmtNZD = (n, cents) => 'NZ$' + Number(n).toLocaleString('en-NZ', { minimumFractionDigits: cents ? 2 : 0, maximumFractionDigits: cents ? 2 : 0 });
+window.Bag = (function () {
+  const KEY = 'korva-bag-v1';
+  let items = [];
+  try { items = JSON.parse(localStorage.getItem(KEY) || '[]').filter((i) => window.PRODUCTS[i.id]); } catch (e) { items = []; }
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(items)); } catch (e) { /* storage unavailable */ } };
+  const line = (i) => { const p = window.PRODUCTS[i.id]; const unit = Math.round(p.price * (1 - (i.disc || 0)) * 100) / 100; return { ...i, p, unit, total: unit * i.qty }; };
+  return {
+    items: () => items.map(line),
+    count: () => items.reduce((a, i) => a + i.qty, 0),
+    subtotal: () => items.map(line).reduce((a, l) => a + l.total, 0),
+    add(id, size, disc = 0) {
+      const sz = window.SIZES[window.PRODUCTS[id].cat];
+      size = size || sz[Math.min(1, sz.length - 1)];
+      const ex = items.find((i) => i.id === id && i.size === size && (i.disc || 0) === disc);
+      if (ex) ex.qty++; else items.push({ id, size, qty: 1, disc });
+      save();
+    },
+    setQty(k, q) { if (q <= 0) items.splice(k, 1); else items[k].qty = q; save(); },
+    clear() { items = []; save(); },
+  };
+})();

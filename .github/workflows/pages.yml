@@ -30,7 +30,7 @@ jobs:
       - name: Prepare site
         run: |
           mkdir -p _site
-          cp -r index.html styles.css app.js data.js garments.js weave.js assets _site/
+          cp -r ./*.html ./*.css ./*.js assets _site/
           touch _site/.nojekyll
 
       - uses: actions/upload-pages-artifact@v3
