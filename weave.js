@@ -89,7 +89,7 @@
       if (threadAlpha > 0.02) {
         ctx.lineWidth = 1;
         for (let i = 0; i < 3; i++) {
-          ctx.strokeStyle = `rgba(40,40,60,${threadAlpha})`;
+          ctx.strokeStyle = `rgba(215,225,235,${threadAlpha * 0.7})`;
           ctx.beginPath();
           for (let x = 0; x <= W; x += 8) {
             const u = x / W;

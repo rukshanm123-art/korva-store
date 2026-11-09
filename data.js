@@ -57,12 +57,12 @@ window.HERO = [
 ];
 
 window.MOODS = [
-  { name: 'Street Edit', img: IMG('m-street') },
-  { name: 'Denim Days', img: IMG('m-denim') },
-  { name: 'Smart Casual', img: IMG('m-tailored') },
-  { name: 'Athleisure', img: IMG('m-athleisure') },
-  { name: 'Summer Shades', img: IMG('m-summer') },
-  { name: 'Monochrome', img: IMG('m-mono') },
+  { time: '18:00', name: 'Clock Out', note: 'Laptop shut. Tee on.', img: IMG('m-mono') },
+  { time: '20:00', name: 'Dinner Plans', note: 'Denim that sits right.', img: IMG('m-denim') },
+  { time: '22:00', name: 'Main Street', note: 'Loud print, quiet fit.', img: IMG('m-street') },
+  { time: '00:00', name: 'Last Train', note: 'Black on black on concrete.', img: IMG('m-tailored') },
+  { time: '02:00', name: 'Long Way Home', note: 'Soft layers, easy sneakers.', img: IMG('m-athleisure') },
+  { time: '06:00', name: 'First Light', note: 'Shades on, story told.', img: IMG('m-summer') },
 ];
 
 /* Try the Look. Spot coordinates are percentages of the photo (x from the left, y from the top),
@@ -76,30 +76,30 @@ window.LOOKS = [
 
 /* Pick a Fit — tilt cards (every product appears once). */
 window.DECK = [
-  { id: 'ah1', title: ['ECLIPSE', 'BOX TEE'], bg: '#1c1c21' },
+  { id: 'ah1', title: ['ECLIPSE', 'BOX TEE'], bg: '#1b1b20' },
   { id: 'ah2', title: ['NIGHT', 'SHIFT'], bg: '#d7ff1f' },
   { id: 'ah3', title: ['CHROME', 'CRESCENT'], bg: '#c7cad1' },
-  { id: 'ah4', title: ['LAST', 'LIGHT'], bg: '#2b2b31' },
-  { id: 's2', title: ['CRIMSON', 'RUNNER'], bg: '#ff5a36' },
-  { id: 't4', title: ['LUCKY', 'CAT TEE'], bg: '#3a2cff' },
-  { id: 'p3', title: ['LIGHT', 'WASH'], bg: '#ffc93c' },
-  { id: 'a1', title: ['BLACK', 'WAYFARER'], bg: '#c6ff3d' },
-  { id: 't3', title: ['TEAL', 'POCKET'], bg: '#ff4fa3' },
-  { id: 's5', title: ['MAROON', 'SKATE'], bg: '#4cc9ff' },
-  { id: 'p2', title: ['KHAKI', 'JOGGER'], bg: '#7b2cff' },
-  { id: 'a2', title: ['SPORT', 'WATCH'], bg: '#ff8a1f' },
-  { id: 't2', title: ['BLACK', 'CREST'], bg: '#3ce6b0' },
-  { id: 's3', title: ['CHERRY', 'HIGH-TOP'], bg: '#1a1a24' },
-  { id: 'p5', title: ['BLUSH', 'CARGO'], bg: '#2f6bff' },
-  { id: 'a3', title: ['TRUCKER', 'CAP'], bg: '#ff5a36' },
-  { id: 't1', title: ['WHITE', 'ESSENTIAL'], bg: '#9b3cff' },
-  { id: 's1', title: ['WHITE', 'COURT'], bg: '#ffc93c' },
-  { id: 'p1', title: ['BLACK', 'SLIM'], bg: '#c6ff3d' },
-  { id: 'a4', title: ['ROUND', 'GOLD'], bg: '#ff4fa3' },
-  { id: 't5', title: ['MUSTARD', 'HEAVY'], bg: '#3a2cff' },
-  { id: 's4', title: ['TAN', 'COURT'], bg: '#3ce6b0' },
-  { id: 'p4', title: ['MID BLUE', 'SKINNY'], bg: '#ff8a1f' },
-  { id: 'a5', title: ['NAVY', 'DAY PACK'], bg: '#7b2cff' },
+  { id: 'ah4', title: ['LAST', 'LIGHT'], bg: '#2c2c33' },
+  { id: 's2', title: ['CRIMSON', 'RUNNER'], bg: '#f2f2ee' },
+  { id: 't4', title: ['LUCKY', 'CAT TEE'], bg: '#3b3b43' },
+  { id: 'p3', title: ['LIGHT', 'WASH'], bg: '#1b1b20' },
+  { id: 'a1', title: ['BLACK', 'WAYFARER'], bg: '#d7ff1f' },
+  { id: 't3', title: ['TEAL', 'POCKET'], bg: '#c7cad1' },
+  { id: 's5', title: ['MAROON', 'SKATE'], bg: '#2c2c33' },
+  { id: 'p2', title: ['KHAKI', 'JOGGER'], bg: '#f2f2ee' },
+  { id: 'a2', title: ['SPORT', 'WATCH'], bg: '#3b3b43' },
+  { id: 't2', title: ['BLACK', 'CREST'], bg: '#1b1b20' },
+  { id: 's3', title: ['CHERRY', 'HIGH-TOP'], bg: '#d7ff1f' },
+  { id: 'p5', title: ['BLUSH', 'CARGO'], bg: '#c7cad1' },
+  { id: 'a3', title: ['TRUCKER', 'CAP'], bg: '#2c2c33' },
+  { id: 't1', title: ['WHITE', 'ESSENTIAL'], bg: '#f2f2ee' },
+  { id: 's1', title: ['WHITE', 'COURT'], bg: '#3b3b43' },
+  { id: 'p1', title: ['BLACK', 'SLIM'], bg: '#1b1b20' },
+  { id: 'a4', title: ['ROUND', 'GOLD'], bg: '#d7ff1f' },
+  { id: 't5', title: ['MUSTARD', 'HEAVY'], bg: '#c7cad1' },
+  { id: 's4', title: ['TAN', 'COURT'], bg: '#2c2c33' },
+  { id: 'p4', title: ['MID BLUE', 'SKINNY'], bg: '#f2f2ee' },
+  { id: 'a5', title: ['NAVY', 'DAY PACK'], bg: '#3b3b43' },
 ];
 
 /* Built for the block — product cards */
@@ -143,10 +143,18 @@ window.FABRICS = [
 window.TICKER = [
   ['NEW DROP', 'AFTERHOURS 001: Eclipse Box Tee, Nightshift Cargo, Chrome Crescent, Last Light Cap'],
   ['FREE SHIPPING', 'Free NZ delivery on orders over $150'],
-  ['TRY THE LOOK', 'Four looks, styled head to toe'],
+  ['TRY THE LOOK', 'Four looks off the contact sheet'],
   ['PAY YOUR WAY', 'Apple Pay, Google Pay, Visa, Mastercard, Afterpay, Klarna and Gem'],
   ['THE RACK', '24 pieces: tees, pants, shoes and accessories'],
   ['EASY RETURNS', '30-day returns across New Zealand'],
+];
+
+/* Marquee lines in "Clock out. Switch on." (the em part is outlined) */
+window.LINES = [
+  ['Good taste.', 'Bad hours.'],
+  ['Your out-of-office', 'uniform.'],
+  ['For the hours', 'that are yours.'],
+  ['Clock out.', 'Switch on.'],
 ];
 
 /* The AFTERHOURS drop section */

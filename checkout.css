@@ -1,5 +1,13 @@
 /* KORVA — checkout page (uses the tokens from styles.css) */
 [hidden] { display: none !important; }
+body.co { --bg: #eeede8; --fg: #0b0b0d; --line: #e0ded7; --muted: #6b6b74; --card: #fff; --card-2: #f4f3ef; --primary: #0b0b0d; --primary-2: #0b0b0d; color-scheme: light; background: var(--bg); color: var(--fg); }
+body.co .sum__list .thumb { background: #efeee9; }
+body.co .co-head .mark { box-shadow: 0 0 0 1px rgba(0,0,0,.08); }
+body.co .co-empty h1, body.co .co-done h1 { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: .01em; }
+body.co .co-card h2 { font-family: var(--display); font-weight: 400; font-size: 24px; text-transform: uppercase; letter-spacing: .01em; }
+body.co .sum__total dd, body.co .sum__totals dd, body.co .opt em { font-family: var(--mono); }
+body.co .paybtn { font-size: 15px; }
+body.co .co-test b { background: #d7ff1f; }
 body.co { background: var(--bg); min-height: 100vh; }
 .co-test { background: var(--ink); color: rgba(255,255,255,.8); font-size: 12px; text-align: center; padding: 9px 16px; line-height: 1.4; }
 .co-test b { background: var(--lime); color: var(--ink); border-radius: 999px; padding: 2px 8px; margin-right: 8px; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
