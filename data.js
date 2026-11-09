@@ -8,6 +8,11 @@ const LOOK = (n) => `assets/looks/${n}.jpg`;
 /* 20 products: 5 per category. `rail` items hang on the rack, the rest sit on its shelf.
    `hanger: true` means the photo has no hanger of its own, so the rack draws one. */
 window.PRODUCTS = {
+  // AFTERHOURS — Drop 001 (listed first so it leads the rack)
+  ah1: { name: 'Eclipse Box Tee', cat: 'tees', price: 89, img: PROD('ah1'), color: '#2a2a2e', rail: true, hanger: true, drop: true, sku: 'KORVA-AH-001', desc: 'A boxy, oversized tee in washed charcoal. Acid-yellow eclipse artwork brings the energy; a small KORVA chest mark keeps it grounded.' },
+  ah2: { name: 'Nightshift Cargo', cat: 'pants', price: 179, img: PROD('ah2'), color: '#151518', rail: true, hanger: true, drop: true, sku: 'KORVA-AH-002', desc: 'A wide-leg cargo with sculpted utility pockets, hanging straps and a sharp acid-yellow signature tab.' },
+  ah3: { name: 'Chrome Crescent', cat: 'acc', price: 119, img: PROD('ah3'), color: '#b9bcc4', drop: true, sku: 'KORVA-AH-003', desc: 'A curved crossbody in liquid silver with a bold black strap and an acid-yellow KORVA tab.' },
+  ah4: { name: 'Last Light Cap', cat: 'acc', price: 49, img: PROD('ah4'), color: '#2b2b2f', drop: true, sku: 'KORVA-AH-004', desc: 'A washed-black six-panel cap with acid-yellow KORVA embroidery. Low-key from a distance, recognisable up close.' },
   // T-shirts
   t1: { name: 'White Essential Tee', cat: 'tees', price: 49, img: PROD('t1'), color: '#f1f1f1', rail: true, desc: '200 GSM combed cotton with a clean crew neck. The everyday white tee.' },
   t2: { name: 'Black Crest Tee', cat: 'tees', price: 59, img: PROD('t2'), back: PROD('t2-back'), color: '#16161a', rail: true, desc: 'Heavyweight black cotton, small crest on the chest and a large print on the back.' },
@@ -44,10 +49,11 @@ window.CAT_LABEL = { tees: 'T-SHIRT', pants: 'PANTS', shoes: 'SHOES', acc: 'ACCE
 window.SIZES = { tees: ['S', 'M', 'L', 'XL'], pants: ['28', '30', '32', '34', '36'], shoes: ['US 7', 'US 8', 'US 9', 'US 10', 'US 11'], acc: ['One size'] };
 
 window.HERO = [
-  { img: IMG('hero1'), eyebrow: 'T-SHIRTS · PANTS · SHOES · ACCESSORIES', title: 'Worn for the Streets.', text: 'Heavyweight tees, honest denim and sneakers built to walk. Designed in Aotearoa, shipped free across New Zealand on orders over $150.', main: true },
-  { img: IMG('hero2'), eyebrow: '02 · THE TEES', title: 'Cotton that holds its shape.', text: 'From the White Essential to the Lucky Cat print.' },
-  { img: IMG('hero3'), eyebrow: '03 · THE DENIM', title: 'Denim that learns your stride.', text: 'Slim black, light wash straight and mid blue skinny.' },
-  { img: IMG('hero4'), eyebrow: '04 · THE SOLES', title: 'A sneaker for every step.', text: 'Court, runner, high-top and skate. Laced for years.' },
+  { img: IMG('afterhours'), eyebrow: 'NEW · AFTERHOURS DROP 001', title: 'Good taste. Bad hours.', text: 'For the hours that are yours. Four pieces for the last train and the long way home: oversized black, a hit of acid yellow and a flash of silver.', main: true, drop: true },
+  { img: IMG('hero1'), eyebrow: '02 · T-SHIRTS · PANTS · SHOES · ACCESSORIES', title: 'Worn for the Streets.', text: 'Heavyweight tees, honest denim and sneakers built to walk. Shipped free across New Zealand on orders over $150.' },
+  { img: IMG('hero2'), eyebrow: '03 · THE TEES', title: 'Cotton that holds its shape.', text: 'From the White Essential to the Lucky Cat print.' },
+  { img: IMG('hero3'), eyebrow: '04 · THE DENIM', title: 'Denim that learns your stride.', text: 'Slim black, light wash straight and mid blue skinny.' },
+  { img: IMG('hero4'), eyebrow: '05 · THE SOLES', title: 'A sneaker for every step.', text: 'Court, runner, high-top and skate. Laced for years.' },
 ];
 
 window.MOODS = [
@@ -70,6 +76,10 @@ window.LOOKS = [
 
 /* Pick a Fit — tilt cards (every product appears once). */
 window.DECK = [
+  { id: 'ah1', title: ['ECLIPSE', 'BOX TEE'], bg: '#1c1c21' },
+  { id: 'ah2', title: ['NIGHT', 'SHIFT'], bg: '#d7ff1f' },
+  { id: 'ah3', title: ['CHROME', 'CRESCENT'], bg: '#c7cad1' },
+  { id: 'ah4', title: ['LAST', 'LIGHT'], bg: '#2b2b31' },
   { id: 's2', title: ['CRIMSON', 'RUNNER'], bg: '#ff5a36' },
   { id: 't4', title: ['LUCKY', 'CAT TEE'], bg: '#3a2cff' },
   { id: 'p3', title: ['LIGHT', 'WASH'], bg: '#ffc93c' },
@@ -93,7 +103,7 @@ window.DECK = [
 ];
 
 /* Built for the block — product cards */
-window.DEVOTE = ['t2', 's2', 'p3', 'a1', 't4', 's4', 'p2', 'a2', 's5', 'a5'];
+window.DEVOTE = ['ah1', 'ah3', 't2', 's2', 'p3', 'a1', 't4', 's4', 'p2', 'a2', 's5', 'a5'];
 
 /* Feel the fit */
 window.FILM = [LOOK('city'), IMG('m-street'), LOOK('white'), IMG('x-circle'), LOOK('tan'), IMG('m-summer')];
@@ -112,7 +122,7 @@ window.REELS = [
 
 /* The Signature Collection — best sellers across every category */
 window.SIGNATURE = [
-  { id: 's1', tint: '#e8e4ff' }, { id: 't2', tint: '#d9ffe9' }, { id: 'p3', tint: '#ffe9d6' },
+  { id: 'ah1', tint: '#f3ffc2' }, { id: 's1', tint: '#e8e4ff' }, { id: 't2', tint: '#d9ffe9' }, { id: 'p3', tint: '#ffe9d6' },
   { id: 'a2', tint: '#e0f3ff' }, { id: 't4', tint: '#ffe1ee' }, { id: 's2', tint: '#f4ffd1' }, { id: 'a5', tint: '#efe6ff' },
 ];
 
@@ -131,12 +141,16 @@ window.FABRICS = [
 ];
 
 window.TICKER = [
+  ['NEW DROP', 'AFTERHOURS 001: Eclipse Box Tee, Nightshift Cargo, Chrome Crescent, Last Light Cap'],
   ['FREE SHIPPING', 'Free NZ delivery on orders over $150'],
   ['TRY THE LOOK', 'Four looks, styled head to toe'],
   ['PAY YOUR WAY', 'Apple Pay, Google Pay, Visa, Mastercard, Afterpay, Klarna and Gem'],
-  ['THE RACK', '20 pieces: tees, pants, shoes and accessories'],
+  ['THE RACK', '24 pieces: tees, pants, shoes and accessories'],
   ['EASY RETURNS', '30-day returns across New Zealand'],
 ];
+
+/* The AFTERHOURS drop section */
+window.DROP = { name: 'AFTERHOURS', no: 'Drop 001', line: 'Good taste. Bad hours.', tag: 'For the hours that are yours.', img: IMG('afterhours'), ids: ['ah1', 'ah2', 'ah3', 'ah4'] };
 
 /* Shared helpers used by the store and the checkout */
 window.fmtNZD = (n, cents) => 'NZ$' + Number(n).toLocaleString('en-NZ', { minimumFractionDigits: cents ? 2 : 0, maximumFractionDigits: cents ? 2 : 0 });

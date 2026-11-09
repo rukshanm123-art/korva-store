@@ -48,7 +48,15 @@
     $('#afterpaySched').innerHTML = ['Today', '2 weeks', '4 weeks', '6 weeks'].map((d, i) => `<div style="--p:${(i + 1) * 25}%">${d}<b>${nzd(q)}</b></div>`).join('');
     $('#klarna4').textContent = `4 interest-free payments of ${nzd(q)}`;
     $('#gemText').textContent = t.total >= GEM_MIN ? `6 months interest free with Gem Visa: ${nzd(t.total / 6)} a month for 6 months.` : `Gem Interest Free is available on orders of ${nzd(GEM_MIN)} or more. Add ${nzd(GEM_MIN - t.total)} to use it.`;
+    renderUpsell(lines);
     updatePayBtn();
+  }
+  function renderUpsell(lines) {
+    const D = window.DROP, have = new Set(lines.map((l) => l.id));
+    const missing = D.ids.filter((id) => !have.has(id));
+    if (!missing.length) { $('#upsell').innerHTML = ''; return; }
+    $('#upsell').innerHTML = `<h3>${D.name} · ${D.no}</h3><p>Complete the drop. ${D.line}</p><ul>${missing.map((id) => `<li><span class="thumb"><img src="${P[id].img}" alt=""></span><div><b>${P[id].name}</b><small>${nzd(P[id].price)}</small></div><button type="button" data-id="${id}">Add</button></li>`).join('')}</ul>`;
+    $$('#upsell button').forEach((b) => (b.onclick = () => { Bag.add(b.dataset.id); render(); flash(`${P[b.dataset.id].name} added`); }));
   }
   function updatePayBtn() {
     const m = form.pay.value, t = totals();

@@ -160,7 +160,8 @@
     const words = s.title.split(' ').map((w, wi, arr) => `<span class="w" style="display:inline-block;white-space:nowrap">${[...w].map((c, k) => `<span class="ch" style="animation-delay:${((arr.slice(0, wi).join(' ').length + k) * 0.03).toFixed(2)}s">${c}</span>`).join('')}</span>`).join(' ');
     contentEl.innerHTML = (s.main ? `<div class="hero__chip">${s.eyebrow}</div>` : `<div class="hero__eyebrow">${s.eyebrow}</div>`) +
       `<h1 class="hero__title">${words}</h1><p class="hero__text">${s.text}</p>` +
-      (s.main ? `<div class="hero__cta"><a class="pill pill--lime" href="#look">Try the Look <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="pill pill--ghost" href="#rack">Browse the Rack <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></div>` : '');
+      (s.drop ? `<div class="hero__cta"><a class="pill pill--lime" href="#drop">Shop the drop <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="pill pill--ghost" href="#rack">Browse the Rack <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></div>` : '') +
+      (s.main && !s.drop ? `<div class="hero__cta"><a class="pill pill--lime" href="#look">Try the Look <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a><a class="pill pill--ghost" href="#rack">Browse the Rack <span class="pill__dot"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></div>` : '');
     clearTimeout(heroTimer); heroTimer = setTimeout(() => showHero(hi + 1), HERO_MS);
   }
   function startHero() { showHero(0); }
@@ -170,6 +171,18 @@
   $('#ribbon').innerHTML = rib + rib + rib;
   const tk = window.TICKER.map(([a, b]) => `<span><b>${a}</b>${b}<i>✦</i></span>`).join('');
   $('#ticker').innerHTML = tk + tk + tk;
+
+  /* ------------------------------------------------------------------ AFTERHOURS drop */
+  const DR = window.DROP;
+  $('#dropImg').src = DR.img;
+  $('#dropGrid').innerHTML = DR.ids.map((id, i) => `<div class="dtile" style="--d:${(0.15 + i * 0.08).toFixed(2)}s"><div class="dtile__img"><img src="${P[id].img}" alt="${P[id].name}" loading="lazy"></div><div class="dtile__name">${P[id].name}</div><div class="dtile__price">${money(P[id].price)}</div><button class="dtile__add" data-id="${id}" aria-label="Add ${P[id].name}">+</button></div>`).join('');
+  $('#dropTotal').textContent = `4 pieces · ${money(DR.ids.reduce((a, id) => a + P[id].price, 0))}`;
+  $('#dropGrid').onclick = (e) => { const b = e.target.closest('.dtile__add'); if (b) addToBag(b.dataset.id, b.closest('.dtile').querySelector('img')); };
+  $('#dropAll').onclick = () => {
+    DR.ids.forEach((id, k) => setTimeout(() => addToBag(id, $$('#dropGrid img')[k], { quiet: true }), k * 120));
+    toast(`<b>AFTERHOURS ${DR.no}</b> — all 4 pieces added to your bag`);
+  };
+  revealIO.observe($('#drop'));
 
   /* ------------------------------------------------------------------ six moods */
   $('#arches').innerHTML = window.MOODS.map((m, i) => `
@@ -237,7 +250,7 @@
   window.DECK.forEach((d) => {
     const p = P[d.id], c = document.createElement('div');
     c.className = 'card'; c.style.setProperty('--bg-c', d.bg); c.style.setProperty('--fg-c', isLight(d.bg) ? '#121218' : '#fff');
-    c.innerHTML = `<div class="card__inner"><div class="card__title">${d.title[0]}<br>${d.title[1]}</div><div class="card__img"><img src="${p.img}" alt="${p.name}" draggable="false" loading="lazy"></div>
+    c.innerHTML = `<div class="card__inner">${p.drop ? '<span class="badge-new">NEW · DROP 001</span>' : ''}<div class="card__title">${d.title[0]}<br>${d.title[1]}</div><div class="card__img"><img src="${p.img}" alt="${p.name}" draggable="false" loading="lazy"></div>
       <button class="card__fav" aria-label="Save ${p.name}"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
       <div class="card__meta"><div class="card__name">${p.name}</div><div class="card__price">${money(p.price)}</div></div><button class="card__add" aria-label="Add ${p.name}">+</button><div class="card__shine"></div></div>`;
     c.dataset.id = d.id; deckTrack.appendChild(c);
@@ -283,7 +296,7 @@
   const rackSec = $('#rack'), stage = $('#rackStage'), fixture = $('#fixture'), railItems = $('#railItems'), shelfItems = $('#shelfItems');
   const ids = Object.keys(P);
   const RAIL_H = { t1: 222, t2: 232, p3: 236, tees: 182, pants: 238 };
-  const SHELF_H = { shoes: 92, a1: 44, a2: 116, a3: 84, a4: 34, a5: 128, t5: 106 };
+  const SHELF_H = { ah3: 112, ah4: 78, shoes: 92, a1: 44, a2: 116, a3: 84, a4: 34, a5: 128, t5: 106 };
   const HANGER = `<svg class="piece-r__hanger" viewBox="0 0 120 44"><path d="M60 2c6 0 9 4 9 8 0 5-9 7-9 13v4" fill="none" stroke="#8d8c98" stroke-width="3" stroke-linecap="round"/><path d="M60 27 L10 40 c-5 2-3 4 1 4 h98 c4 0 6-2 1-4 Z" fill="#c9a27a" stroke="#9c7651" stroke-width="2" stroke-linejoin="round"/></svg>`;
   const CLIPS = `<svg class="piece-r__hanger" viewBox="0 0 120 44"><path d="M60 2c6 0 9 4 9 8 0 5-9 7-9 13v6" fill="none" stroke="#8d8c98" stroke-width="3" stroke-linecap="round"/><path d="M20 30 H100" stroke="#8d8c98" stroke-width="4" stroke-linecap="round"/><rect x="24" y="28" width="10" height="16" rx="2" fill="#c3c2cc"/><rect x="86" y="28" width="10" height="16" rx="2" fill="#c3c2cc"/></svg>`;
   let rcat = 'all', railList = [], shelfList = [], rfocus = null;
@@ -298,7 +311,7 @@
     const h = onShelf ? (SHELF_H[id] || SHELF_H[p.cat]) * k * (shelfOnly ? 1.55 : 1) : (RAIL_H[id] || RAIL_H[p.cat]) * k * (!shelfList.length ? 1.12 : 1);
     el.style.setProperty('--h', h + 'px');
     const hang = !onShelf && p.hanger ? (p.cat === 'pants' ? CLIPS : HANGER) : '';
-    el.innerHTML = `<div class="piece-r__swing" style="--sw:${(3 + Math.random() * 1.6).toFixed(2)}s;--sd:${(-Math.random() * 3).toFixed(2)}s">${hang}<img class="piece-r__img piece-r__front" src="${p.img}" alt="${p.name}" draggable="false">${p.back ? `<img class="piece-r__img piece-r__back" src="${p.back}" alt="" draggable="false">` : ''}<span class="piece-r__price">${money(p.price)}</span></div>`;
+    el.innerHTML = `<div class="piece-r__swing" style="--sw:${(3 + Math.random() * 1.6).toFixed(2)}s;--sd:${(-Math.random() * 3).toFixed(2)}s">${hang}<img class="piece-r__img piece-r__front" src="${p.img}" alt="${p.name}" draggable="false">${p.back ? `<img class="piece-r__img piece-r__back" src="${p.back}" alt="" draggable="false">` : ''}<span class="piece-r__price">${money(p.price)}</span></div>${p.drop ? '<span class="badge-new">NEW</span>' : ''}`;
     if (hang) el.querySelector('.piece-r__hanger').style.width = Math.max(70, 120 * k) + 'px';
     el.onclick = (e) => { e.stopPropagation(); focusRack(id); };
     el.addEventListener('animationend', (e) => { if (e.animationName === 'garmentIn' || e.animationName === 'shelfIn') el.classList.remove('is-enter'); });
