@@ -38,6 +38,7 @@
     <nav class="nav__links" id="navLinks">
       <a href="#home" data-sec="home" class="is-active">Home</a>
       <a href="#drop" data-sec="drop" class="nav__new">Drop 001</a>
+      <a href="#fitting" data-sec="fitting">Fitting Room</a>
       <a href="#look" data-sec="look">Try the Look</a>
       <a href="#pick" data-sec="pick">Pick a Fit</a>
       <a href="#rack" data-sec="rack">The Rack</a>
@@ -82,8 +83,56 @@
       </div>
     </section>
 
+    <!-- ============ THE FITTING ROOM ============ -->
+    <section class="sec fit" id="fitting" data-section>
+      <div class="sec__head">
+        <div>
+          <div class="eyebrow" data-reveal>The Fitting Room</div>
+          <h2 class="h2" data-split>Try it on. <em class="acid">Turn it around.</em></h2>
+        </div>
+        <p class="sec__aside" data-reveal>Pick a tee off the rail, then switch to On model and spin it 360°. Drag the model to turn, or let it rotate.</p>
+      </div>
+      <div class="fit__stage" id="fitStage">
+        <div class="fit__scene fit__scene--rail">
+          <img class="fit__bg" src="assets/fitting/wall.jpg" alt="" loading="lazy" />
+          <div class="fit__sun"></div>
+          <svg class="fit__rail" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#b7b9c0"/><stop offset="1" stop-color="#6e7078"/></linearGradient></defs><path d="M-20 290 C 40 60, 260 34, 560 40" fill="none" stroke="rgba(60,50,60,.18)" stroke-width="14" stroke-linecap="round" transform="translate(10 16)"/><path d="M-20 290 C 40 60, 260 34, 560 40" fill="none" stroke="url(#chrome)" stroke-width="9" stroke-linecap="round"/></svg>
+          <div class="fit__queue" id="fitQueue"></div>
+        </div>
+        <div class="fit__scene fit__scene--model">
+          <img class="fit__bg" src="assets/fitting/room.jpg" alt="" loading="lazy" />
+          <div class="fit__model" id="fitModel">
+            <span class="fit__floor"></span>
+            <img id="fitA" class="fit__frame is-on" alt="Model wearing the selected piece" draggable="false" />
+            <img id="fitB" class="fit__frame" alt="" draggable="false" />
+          </div>
+          <div class="fit__dial"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="rgba(11,11,13,.2)" stroke-width="2"/><g id="fitDot"><circle cx="20" cy="4" r="3.2" fill="#0b0b0d"/></g></svg><span id="fitDeg">000°</span><small>Drag to turn</small></div>
+        </div>
+        <div class="fit__top">
+          <span class="fit__tag"><b>K</b> Fitting room</span>
+          <div class="fit__toggle" id="fitToggle" role="tablist"><button class="is-on" data-mode="rail" role="tab">On the rail</button><button data-mode="model" role="tab">On model 360°</button></div>
+        </div>
+        <div class="fit__thumbs" id="fitThumbs"></div>
+        <div class="fit__arrows"><button class="fit__arrow" id="fitPrev" aria-label="Previous piece"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><button class="fit__arrow" id="fitNext" aria-label="Next piece"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button></div>
+        <aside class="fit__card" id="fitCard">
+          <div class="fit__row"><span id="fitCat"></span><span id="fitIdx"></span></div>
+          <h3 id="fitName"></h3>
+          <div class="fit__price" id="fitPrice"></div>
+          <div class="fit__colour" id="fitColour"></div>
+          <p class="fit__desc" id="fitDesc"></p>
+          <div class="fit__label">Size</div>
+          <div class="fit__sizes" id="fitSizes"></div>
+          <button class="fit__add" id="fitAdd">Add to bag</button>
+          <button class="fit__try" id="fitTry">View on model 360°</button>
+          <div class="fit__label">Worn with</div>
+          <div class="fit__look"><div id="fitLook"></div><button id="fitAddLook">Add look · <span id="fitLookTotal"></span></button></div>
+        </aside>
+        <div class="fit__flash" id="fitFlash"></div>
+      </div>
+    </section>
+
     <!-- ============ SIX HOURS, SIX MOODS ============ -->
-    <section class="sec moods" id="moods" data-section="drop">
+    <section class="sec moods" id="moods" data-section="fitting">
       <div class="sec__head">
         <div>
           <div class="eyebrow" data-reveal>The Afterhours Index</div>
@@ -314,5 +363,6 @@
   <script src="data.js"></script>
   <script src="weave.js"></script>
   <script src="app.js"></script>
+  <script src="fitting.js"></script>
 </body>
 </html>

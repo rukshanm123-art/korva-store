@@ -35,16 +35,17 @@ The whole site follows the AFTERHOURS identity: night concrete, silver and acid 
 1. Intro: a clock counts down to midnight, camera flashes reveal the drop pieces, the KORVA wordmark lights up in acid yellow and shutter blinds open onto the store
 2. Hero slideshow led by the AFTERHOURS campaign, with a live Auckland clock in the nav
 3. AFTERHOURS Drop 001: campaign photo, the four pieces and "Add the full drop"
-4. Six hours, six moods: a timeline from 18:00 (Clock Out) to 06:00 (First Light) with black-and-white flash photos that turn to colour on hover
-5. Try the Look: a contact sheet of four looks beside a large frame, where numbered hotspots sit on the actual items and match the piece list
-6. Pick a Fit: a 3D card deck with all 24 products in charcoal, silver and acid
-7. The Rack: under spotlights, tees and pants hang on a chrome rail and shoes and accessories sit on a lit shelf; the drop hangs first, marked NEW
-8. Clock out. Switch on.: draggable product cards and outlined marquee lines
-9. Caught in the flash: a film with flash cuts and a running timecode between black-and-white photo columns
-10. Style, after hours: reels and a story viewer, each selling a product visible in the photo
-11. The Late Shift: best sellers on a fan of arches
-12. Three pieces. One night.: pick any three tees or pants, watch them weave together, get 10% off
-13. Footer with a live clock, accepted payment methods and a bag drawer with quantities, free-shipping progress and Afterpay pricing
+4. The Fitting Room: tees hang on a curved rail and swing forward one at a time, with a soft shadow on the wall and a product card (sizes, Add to bag, the full look). Switch to "On model 360°" to see the tee worn by a model who turns all the way round; drag to rotate. The model views are 8-angle turnarounds in `assets/fitting`, generated with AI from the product photos
+5. Six hours, six moods: a timeline from 18:00 (Clock Out) to 06:00 (First Light) with black-and-white flash photos that turn to colour on hover
+6. Try the Look: a contact sheet of four looks beside a large frame, where numbered hotspots sit on the actual items and match the piece list
+7. Pick a Fit: a 3D card deck with all 24 products in charcoal, silver and acid
+8. The Rack: under spotlights, tees and pants hang on a chrome rail and shoes and accessories sit on a lit shelf; the drop hangs first, marked NEW
+9. Clock out. Switch on.: draggable product cards and outlined marquee lines
+10. Caught in the flash: a film with flash cuts and a running timecode between black-and-white photo columns
+11. Style, after hours: reels and a story viewer, each selling a product visible in the photo
+12. The Late Shift: best sellers on a fan of arches
+13. Three pieces. One night.: pick any three tees or pants, watch them weave together, get 10% off
+14. Footer with a live clock, accepted payment methods and a bag drawer with quantities, free-shipping progress and Afterpay pricing
 
 ## Checkout (`checkout.html`)
 

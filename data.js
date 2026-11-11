@@ -149,6 +149,14 @@ window.TICKER = [
   ['EASY RETURNS', '30-day returns across New Zealand'],
 ];
 
+/* The Fitting Room — each piece has an 8-angle on-model turnaround in assets/fitting/<set>-0..7.webp */
+window.FITTING = [
+  { id: 'ah1', set: 'o1', colour: 'Washed charcoal', look: ['ah1', 'ah2', 'ah4', 'ah3', 's1'] },
+  { id: 't2', set: 'o2', colour: 'Black / white print', look: ['t2', 'p3', 's1', 'a1'] },
+  { id: 't4', set: 'o3', colour: 'Bone / cobalt', look: ['t4', 'p2', 's2', 'a3'] },
+  { id: 't3', set: 'o4', colour: 'Garment-dyed teal', look: ['t3', 'p1', 's3', 'a4'] },
+];
+
 /* Marquee lines in "Clock out. Switch on." (the em part is outlined) */
 window.LINES = [
   ['Good taste.', 'Bad hours.'],

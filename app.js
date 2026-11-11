@@ -103,6 +103,7 @@
     $('#drawerAfterpay').innerHTML = sub ? `or 4 interest-free payments of <b>${window.fmtNZD(sub / 4, true)}</b> with Afterpay` : '';
   }
   renderDrawer(); syncCounts();
+  window.KORVA = { addToBag, toast };
   function openDrawer(on) { if ($('#drawer').classList.contains('is-open') === on) return; $('#drawer').classList.toggle('is-open', on); lockScroll(on); }
   bagBtn.onclick = () => openDrawer(true);
   $('#viewCart').onclick = () => openDrawer(true);
