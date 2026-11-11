@@ -133,6 +133,7 @@
   function camera() {
     const c = CAM[cat];
     stage.style.setProperty('--z', c.z); stage.style.setProperty('--zy', c.y + '%'); stage.style.setProperty('--zbg', c.bg);
+    stage.style.setProperty('--vz', cat === 'tees' ? 1 : cat === 'pants' ? 1.6 : 2.8); stage.style.setProperty('--vo', cat === 'tees' ? '60%' : '96%');
   }
   function loadModel(withFlash) {
     const set = F[cur].set; camera();
