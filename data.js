@@ -175,8 +175,8 @@ window.FITTING = {
     { id: 's3', set: 'o4', colour: 'Cherry canvas' },
   ],
 };
-/* Real turnaround videos, when available: { o1: 'assets/fitting/o1.mp4', ... } */
-window.FITTING_VIDEOS = {};
+/* Real 360° turnaround videos (seamless loops). The player picks WebM or MP4, whichever the browser supports. */
+window.FITTING_VIDEOS = { o1: 'assets/fitting/o1', o2: 'assets/fitting/o2', o3: 'assets/fitting/o3', o4: 'assets/fitting/o4' };
 
 /* Marquee lines in "Clock out. Switch on." (the em part is outlined) */
 window.LINES = [

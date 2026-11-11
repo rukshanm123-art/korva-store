@@ -133,7 +133,7 @@
   function camera() {
     const c = CAM[cat];
     stage.style.setProperty('--z', c.z); stage.style.setProperty('--zy', c.y + '%'); stage.style.setProperty('--zbg', c.bg);
-    stage.style.setProperty('--vz', cat === 'tees' ? 1 : cat === 'pants' ? 1.6 : 2.8); stage.style.setProperty('--vo', cat === 'tees' ? '60%' : '96%');
+    stage.style.setProperty('--vz', cat === 'tees' ? 1 : cat === 'pants' ? 1.55 : 2.2); stage.style.setProperty('--vo', cat === 'tees' ? '60%' : '96%');
   }
   function loadModel(withFlash) {
     const set = F[cur].set; camera();
@@ -141,7 +141,10 @@
     useVideo = !!VIDEOS[set];
     stage.classList.toggle('has-video', useVideo);
     if (useVideo) {
-      V.src = VIDEOS[set]; V.currentTime = 0; V.play().catch(() => {});
+      const base = VIDEOS[set].replace(/\.(mp4|webm)$/, '');
+      V.poster = base + '-poster.jpg';
+      V.src = base + (V.canPlayType('video/webm; codecs="vp9"') ? '.webm' : '.mp4');
+      V.currentTime = 0; V.play().catch(() => {});
     } else {
       preload(set);
       frame = 0; front.src = frameSrc(set, 0); front.classList.add('is-on'); back.classList.remove('is-on');
