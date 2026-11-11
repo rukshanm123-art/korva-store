@@ -149,13 +149,34 @@ window.TICKER = [
   ['EASY RETURNS', '30-day returns across New Zealand'],
 ];
 
-/* The Fitting Room — each piece has an 8-angle on-model turnaround in assets/fitting/<set>-0..7.webp */
-window.FITTING = [
-  { id: 'ah1', set: 'o1', colour: 'Washed charcoal', look: ['ah1', 'ah2', 'ah4', 'ah3', 's1'] },
-  { id: 't2', set: 'o2', colour: 'Black / white print', look: ['t2', 'p3', 's1', 'a1'] },
-  { id: 't4', set: 'o3', colour: 'Bone / cobalt', look: ['t4', 'p2', 's2', 'a3'] },
-  { id: 't3', set: 'o4', colour: 'Garment-dyed teal', look: ['t3', 'p1', 's3', 'a4'] },
-];
+/* The Fitting Room — each look has an 8-angle on-model turnaround in assets/fitting/<set>-0..7.webp */
+window.LOOK_OF = {
+  o1: ['ah1', 'ah2', 'ah4', 'ah3', 's1'],
+  o2: ['t2', 'p3', 's1', 'a1'],
+  o3: ['t4', 'p2', 's2', 'a3'],
+  o4: ['t3', 'p1', 's3', 'a4'],
+};
+window.FITTING = {
+  tees: [
+    { id: 'ah1', set: 'o1', colour: 'Washed charcoal' },
+    { id: 't2', set: 'o2', colour: 'Black / white print' },
+    { id: 't4', set: 'o3', colour: 'Bone / cobalt' },
+    { id: 't3', set: 'o4', colour: 'Garment-dyed teal' },
+  ],
+  pants: [
+    { id: 'ah2', set: 'o1', colour: 'After dark' },
+    { id: 'p3', set: 'o2', colour: 'Light wash' },
+    { id: 'p2', set: 'o3', colour: 'Khaki' },
+    { id: 'p1', set: 'o4', colour: 'Washed black' },
+  ],
+  shoes: [
+    { id: 's1', set: 'o2', colour: 'White leather' },
+    { id: 's2', set: 'o3', colour: 'Crimson knit' },
+    { id: 's3', set: 'o4', colour: 'Cherry canvas' },
+  ],
+};
+/* Real turnaround videos, when available: { o1: 'assets/fitting/o1.mp4', ... } */
+window.FITTING_VIDEOS = {};
 
 /* Marquee lines in "Clock out. Switch on." (the em part is outlined) */
 window.LINES = [
